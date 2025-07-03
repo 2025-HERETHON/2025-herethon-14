@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        <a href="#">폭력이란?</a>
+        <a href="#">관련 기관</a>
+        <a href="{% url 'timelog:index' %}">내 저장소</a>
+        <a href="#">탈출기</a>
+        <a href="#">프로파일링</a>
+    </p>
+    <hr>
+
+    <table>
+        <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>날짜</th>
+        </tr>
+        {% for num, timelog in num_log %}
+        <tr>
+            <td>{{ num }}</td>
+            <td><a href="{% url 'timelog:detail' timelog.id %}">{{ timelog.title }}</a></td>
+            <td>{{ timelog.date|date:"n월 j일" }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="3">작성된 로그 없음</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br><br>
+    
+    <a href="{% url 'timelog:create' %}">기록하기</a>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="{% url 'timelog:index' %}">전체 글 보기</a>
+    <h3>{{ timelog.title }}</h3>
+    <p>{{ timelog.date }}</p>
+    <p>{{ timelog.content }}</p>
+    <hr>
+    <a href="{% url 'timelog:update' timelog.id %}">수정</a>
+    <a href="{% url 'timelog:delete' timelog.id %}">삭제</a>
+</body>
+</html>

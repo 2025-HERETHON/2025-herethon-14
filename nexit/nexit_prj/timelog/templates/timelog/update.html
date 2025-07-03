@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="{% url 'timelog:detail' timelog.id %}">이전으로</a>
+    <h2>수정하기</h2>
+    <form method="POST" aciton="{% url 'timelog:update' timelog.id %}">
+        {% csrf_token %}
+        {{ form.date }} <br>
+        {{ form.title }} <br>
+        {{ form.content }} <br>
+        <button type="submit">수정</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="{% url 'timelog:index' %}">이전으로</a>
+    <h2>작성하기</h2>
+    <form method="POST" action="{% url 'timelog:create' %}">
+        {% csrf_token %}
+        {{ form.date }} <br>
+        {{ form.title }} <br>
+        {{ form.content }} <br>
+        <button type="submit">저장</button>
+    </form>
+    
+
+</body>
+</html>
