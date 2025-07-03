@@ -5,7 +5,7 @@ from .views import *
 app_name = 'timelog'
 
 urlpatterns = [
-    path('index/', index, name='index'),
+    path('', index, name='index'),
     path('evidence/', evidence, name='evidence'),
     path('create/', create, name='create'),
     path('detail/<int:id>/', detail, name='detail'),
