@@ -7,5 +7,6 @@ app_name = 'main'
 urlpatterns = [
     path('', main, name='main'),    
     path('about/', about, name='about'),
+    path('institution/', institution, name='institution'),
     
 ]

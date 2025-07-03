@@ -9,12 +9,12 @@
     <nav>
         <a href="{% url 'main:main' %}">홈</a>
         <a href="{% url 'main:about' %}">폭력이란?</a>
-        <a href="#">관련 기관</a>
+        <a href="{% url 'main:institution' %}">관련 기관</a>
         <a href="{% url 'timelog:index' %}">내 저장소</a>
         <a href="#">탈출기</a>
         <a href="#">프로파일링</a>
     </nav>
-    
+
     <hr>
 
     <a href="{% url 'timelog:index' %}">전체 보기</a>
