@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <a href="{% url 'main:main' %}">홈</a>
+        <a href="{% url 'main:about' %}">폭력이란?</a>
+        <a href="{% url 'main:institution' %}">관련 기관</a>
+        <a href="{% url 'timelog:index' %}">내 저장소</a>
+        <a href="{% url 'exitlog:index' %}">탈출기</a>
+        <a href="#">프로파일링</a>
+    </nav><hr>
+    
+    <a href="{% url 'exitlog:index' %}" >전체 글 보기</a>
+    <h3>{{ exitlog.title }}</h3>
+    <p>{{ exitlog.date }}</p>
+    <p>{{ exitlog.content }}</p>
+
+    {% if file_url %}
+        {% if is_image %}
+            <img src="{{ file_url }}" width="400" alt="image">
+        {% else %}
+            <a href="{{ file_url }}">{{ exitlog.original_filename }}</a>
+        {% endif %}
+    {% endif %} 
+
+    {% if exitlog.url %}
+    <p>관련 링크: <a href="{{ exitlog.url }}">{{ exitlog.url }}</a></p>
+    {% endif %}
+
+
+    <hr>
+    <a href="{% url 'exitlog:update' exitlog.id %}">수정</a>
+    <a href="{% url 'exitlog:delete' exitlog.id %}">삭제</a>
+</body>
+</html>

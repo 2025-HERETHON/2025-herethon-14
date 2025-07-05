@@ -14,5 +14,45 @@
         <a href="{% url 'exitlog:index' %}">탈출기</a>
         <a href="#">프로파일링</a>
     </nav>
+
+    <form method="get" id="sortForm">
+        <select name="sort" onchange="document.getElementById('sortForm').submit()">
+            <option value="latest" {% if sort == 'latest' %}selected{% endif %}>최신순</option>
+            <option value="oldest" {% if sort == 'oldest' %}selected{% endif %}>오래된 순</option>
+        </select>
+    </form>
+
+    {% for exitlog in page_obj %}
+        <div>
+            <h3><a href="{% url 'exitlog:detail' exitlog.id %}">{{ exitlog.title }}</a></h3>
+            <p>{{ exitlog.content|slice:":20" }}...</p>
+            <p>{{ exitlog.date }}</p>
+            <!-- 사용자 연결 필요! 이름(예 : 김*은), 프로필 이미지 -->
+        </div>
+        <hr>
+    {% empty %}
+        <p>등록된 탈출기 없음</p>
+    {% endfor %}
+
+    <!-- 페이지네이션 네비게이션 -->
+    <div>
+        {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}&sort={{ sort }}">이전</a>
+        {% else %}
+            이전
+        {% endif %}
+
+        <span>{{ page_obj.number }} / {{ page_obj.paginator.num_pages }}</span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}&sort={{ sort }}">다음</a>
+        {% else %}
+            다음
+        {% endif %}
+    </div>
+
+
+    <a href="{% url 'exitlog:create' %}">작성하기</a>
+
 </body>
 </html>
