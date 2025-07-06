@@ -24,4 +24,5 @@ urlpatterns = [
     path('', include('main.urls')),
     path('timelog/', include('timelog.urls')),
     path('exitlog/', include('exitlog.urls')),
+    path('institutions/', include('institutions.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
