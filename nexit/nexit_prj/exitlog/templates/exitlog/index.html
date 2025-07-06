@@ -15,6 +15,9 @@
         <a href="#">프로파일링</a>
     </nav>
 
+    <a href="{% url 'exitlog:index' %}">전체보기</a>
+    <a href="{% url 'exitlog:scrap_list' %}">나의 스크랩</a>
+
     <form method="get" id="sortForm">
         <select name="sort" onchange="document.getElementById('sortForm').submit()">
             <option value="latest" {% if sort == 'latest' %}selected{% endif %}>최신순</option>
@@ -25,9 +28,22 @@
     {% for exitlog in page_obj %}
         <div>
             <h3><a href="{% url 'exitlog:detail' exitlog.id %}">{{ exitlog.title }}</a></h3>
-            <p>{{ exitlog.content|slice:":20" }}...</p>
-            <p>{{ exitlog.date }}</p>
+            <p>{{ exitlog.content|slice:":20" }}....</p>
+            <p>{{ exitlog.date|date:"Y.n.j" }}</p>
             <!-- 사용자 연결 필요! 이름(예 : 김*은), 프로필 이미지 -->
+
+            <form method="POST" action="{% url 'exitlog:scrap' exitlog.id %}">
+                {% csrf_token %}
+                {% if user.is_authenticated %}
+                    {% if user in exitlog.scrap.all %}
+                        <button type="submit">스크랩 해제</button>
+                    {% else %}
+                        <button type="submit">스크랩</button>
+                    {% endif %}
+                {% else %}
+                    <button disabled>로그인 후 사용 가능</button>
+                {% endif %}
+            </form>
         </div>
         <hr>
     {% empty %}

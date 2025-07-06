@@ -17,7 +17,7 @@
     
     <a href="{% url 'exitlog:index' %}" >전체 글 보기</a>
     <h3>{{ exitlog.title }}</h3>
-    <p>{{ exitlog.date }}</p>
+    <p>{{ exitlog.date|date:"Y.n.j"}}</p>
     <p>{{ exitlog.content }}</p>
 
     {% if file_url %}

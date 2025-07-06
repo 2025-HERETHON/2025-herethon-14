@@ -1,21 +1,34 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Exitlog
+from .models import Exitlog, Scrap
 from .forms import ExitlogForm
 import os
 from django.core.paginator import Paginator
 
-def index(request):
+
+def get_paginated_exitlogs(request, base_queryset):
     sort = request.GET.get('sort', 'latest')
-    
+
     if sort == 'oldest':
-        exitlogs = Exitlog.objects.all().order_by('date')
-    else : 
-        exitlogs = Exitlog.objects.all().order_by('-date')
-        
-    paginator = Paginator(exitlogs, 9)
+        base_queryset = base_queryset.order_by('date')
+    else:
+        base_queryset = base_queryset.order_by('-date')  # latest or 기본값
+
+    paginator = Paginator(base_queryset, 9)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    return render(request, 'exitlog/index.html', {'page_obj': page_obj, 'sort':sort})
+
+    return page_obj, sort
+
+
+def index(request):
+    exitlogs = Exitlog.objects.all()
+    page_obj, sort = get_paginated_exitlogs(request, exitlogs)
+
+    return render(request, 'exitlog/index.html', {
+        'page_obj': page_obj,
+        'sort': sort,
+        'filter_type': 'all',
+    })
 
 def create(request):
     if request.method == 'POST':
@@ -94,4 +107,25 @@ def delete(request, id):
     exitlog.delete()
     return redirect('exitlog:index')
 
+#스크랩 기능
+def scrap(request, exitlog_id): 
+    if request.method =="POST":
+        exitlog = get_object_or_404(Exitlog, id=exitlog_id)
+        user = request.user
+            
+        if user in exitlog.scrap.all():
+            exitlog.scrap.remove(user)
+        else:
+            exitlog.scrap.add(user)
+        return redirect(request.META.get("HTTP_REFERER", "/"))
 
+def scrap_list(request):
+    user = request.user
+    scrap_exitlogs = Exitlog.objects.filter(scrap=user)
+    page_obj, sort = get_paginated_exitlogs(request, scrap_exitlogs)
+
+    return render(request, 'exitlog/index.html', {
+        'page_obj': page_obj,
+        'sort': sort,
+        'filter_type': 'scrap',
+    })
