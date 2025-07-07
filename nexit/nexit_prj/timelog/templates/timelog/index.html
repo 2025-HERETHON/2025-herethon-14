@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <a href="{% url 'main:main' %}">홈</a>
+        <a href="{% url 'main:about' %}">폭력이란?</a>
+        <a href="{% url 'institutions:index' %}">관련 기관</a>
+        <a href="{% url 'timelog:index' %}">내 저장소</a>
+        <a href="{% url 'exitlog:index' %}">탈출기</a>
+        <a href="#">프로파일링</a>
+    </nav>
+
+    <hr>
+
+    <a href="{% url 'timelog:index' %}">전체 보기</a>
+    <a href="{% url 'timelog:evidence' %}">증거 모음</a>
+
+    <br><br>
+
+    <table>
+        <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>날짜</th>
+        </tr>
+        {% for num, timelog in page_obj %}
+        <tr>
+            <td>{{ num }}</td>
+            <td>
+                <a href="{% url 'timelog:detail' timelog.id %}">{{ timelog.title }}</a>
+                <!--파일이 있으면 아이콘 표시-->
+                {% if timelog.file or timelog.url %}
+                    📎
+                {% endif %}
+            </td>
+
+            <td>{{ timelog.date|date:"n월 j일" }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="3">작성된 로그 없음</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br><br>
+
+    <div>
+
+    {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}">이전</a>
+    {% else %}
+        이전
+    {% endif %}
+
+    <span>{{ page_obj.number }} / {{ page_obj.paginator.num_pages }}</span>
+
+    {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">다음</a>
+    {% else %}
+        다음
+    {% endif %}
+    </div>
+    
+    <a href="{% url 'timelog:create' %}">기록하기</a>
+</body>
+</html>

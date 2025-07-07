@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <a href="{% url 'main:main' %}">홈</a>
+        <a href="{% url 'main:about' %}">폭력이란?</a>
+        <a href="{% url 'institutions:index' %}">관련 기관</a>
+        <a href="{% url 'timelog:index' %}">내 저장소</a>
+        <a href="{% url 'exitlog:index' %}">탈출기</a>
+        <a href="#">프로파일링</a>
+    </nav>
+
+    <a href="{% url 'timelog:index' %}">이전으로</a>
+    <h2>작성하기</h2>
+    <form method="POST" action="{% url 'timelog:create' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.date }} <br>
+        {{ form.title }} <br>
+        {{ form.content }} <br>
+        {{ form.file }}<br>
+        {{ form.url }}<br>
+        <button type="submit">저장</button>
+    </form>
+    
+
+</body>
+</html>
