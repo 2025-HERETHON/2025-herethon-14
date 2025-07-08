@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'timelog',
     'exitlog',
     'institutions',
-    'rest_framework',
 ]
 
 MIDDLEWARE = [
