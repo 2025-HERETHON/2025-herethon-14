@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="{% static 'styles/login.css' %}"/>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="../assets/header-logo.png" alt="로고" class="logo" />
+        </header>
+        <main>
+            <section class="login-section">
+                <h1>로그인</h1>
+                <form id="login-form">
+                    <div class="input-group">
+                        <div class="input-wrapper">
+                            <img src="../assets/user.png" alt="" class="input-icon"/>
+                            <input type="text" id="username" placeholder="아이디를 입력하세요."/>
+                        </div>
+                        <div class="input-wrapper">
+                            <img src="../assets/lock.png" alt="" class="input-icon"/>
+                            <input type="password" id="password" placeholder="비밀번호를 입력하세요."/>
+                        </div>
+                        <p id="error-msg" class="error-message" style="display: none;">아이디 또는 비밀번호를 확인해 주세요.</p>
+                    </div>
+                    
+                    <div class="button-group">
+                        <button type="submit">로그인</button>
+                    </div>
+
+                    <div class="link-group">
+                        <p>아직 회원이 아니신가요?<a href="./signup.html">회원가입</a></p>
+                    </div>
+                </form>
+            </section>
+        </main>
+        <footer>
+            <div class="footer=left">
+                <img src="../assets/logo.png" alt="로고" class="footer-logo"/>
+                <p>
+                    대표전화 1234-5678<br/>
+                    이용약관 | 개인정보처리방침<br/>
+                    Copyright @여기톤14팀 All rights reserved.
+                </p>
+            </div>
+            <div class="footer-right">
+                <img src="../assets/insta.png" alt="인스타그램 아이콘" class="footer-icon"/>
+                <img src="../assets/contect.png" alt="이메일 아이콘" class="footer-icon"/>
+            </div>
+        </footer>
+    </div>
+    <script src="../scripts/login.js"></script>
+</body>
+</html>

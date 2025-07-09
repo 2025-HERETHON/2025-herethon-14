@@ -1,0 +1,238 @@
+body {
+    margin: 0;
+    font-family: 'Noto Sans', sans-serif;
+    background-color: #fff;
+    color: #1F1F1F;
+}
+
+.page-container {
+    max-width: 1920px;
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    position: relative;
+    height: 100px;
+    border-bottom: 1px solid #ddd;
+}
+
+.header-inner {
+    position: relative;
+    max-width: 1920px;
+    height: 100px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-logo {
+    position: absolute;
+    top: 31px;
+    left: 375px;
+    width: 180px;
+    height: 44px;
+    object-fit: contain;
+}
+
+.menu {
+    position: absolute;
+    left: 926px;
+    top: 50px;
+    display: flex;
+    list-style: none;
+    gap: 40px;
+    padding: 0;
+    margin: 0;
+}
+
+.menu li a {
+    text-decoration: none;
+    text-align: center;
+    color: #969696;
+    font-weight: 600;
+    line-height: normal;
+    font-size: 16px;
+}
+
+.menu li.active a {
+    color: #1F1F1F;
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+}
+
+.menu li.active a::after {
+    content: "";
+    position: absolute;
+    bottom: -29px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 24px;
+    height: 3px;
+    background-color: #1F1F1F;
+    border-radius: 2px;
+}
+
+.user-profile {
+    display: flex;
+    position: absolute;
+    right: 375px;
+    top: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.profile-link {
+    display: flex;
+    text-decoration: none;
+    color: #78BDA6;
+}
+
+.profile-img {
+    width: 32px;
+    height: 32px;
+    margin-right: 12px;
+}
+
+.username:first-child {
+    font-weight: bold;
+}
+
+.username:last-child {
+    font-weight: normal;
+}
+
+.write-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 0;
+}
+
+.write-header {
+    width: 1170px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 18px;
+    border-bottom: 1.5px solid #1F1F1F;
+}
+
+.write-header h2 {
+    font-size: 24px;
+    position: relative;
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+.date-title-box {
+    border-radius: 20px;
+    border: 1px solid var(--grey02, #D4D4D4);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.date-line {
+    width: 100%;
+    height: 1px;
+    background-color: #E0E0E0;
+}
+
+.title-input {
+    height: 44px;
+    padding: 0 12px;
+    font-size: 14px;
+    border-radius: 12px;
+    border: none;
+    background: #F3F3F3;
+}
+
+.back-button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.submit-button {
+    background: #E8F3EF;
+    color: #78BDA6;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 20px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.write-form {
+    display: flex;
+    flex-direction: column;
+    width: 1170px;
+    padding: 21px 20px;
+    gap: 16px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.05);
+    box-sizing: border-box;
+}
+
+.date-select input[type="date"] {
+    width: 100%;
+    height: 44px;
+    border-radius: 8px;
+    border: 1px solid #E0E0E0;
+    padding: 0 12px;
+    font-size: 14px;
+}
+
+.title-input {
+    height: 44px;
+    padding: 0 12px;
+    font-size: 14px;
+    border-radius: 12px;
+    border: none;
+    background: #F3F3F3;
+}
+
+.editor-box {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #E0E0E0;
+    border-radius: 12px;
+}
+
+.toolbar {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    gap: 12px;
+    border-bottom: 1px solid #E0E0E0;
+}
+
+.toolbar button {
+    background: none;
+    border: none;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+}
+
+.content-input {
+    min-height: 360px;
+    padding: 16px;
+    border: none;
+    resize: none;
+    font-size: 14px;
+    font-family: inherit;
+}

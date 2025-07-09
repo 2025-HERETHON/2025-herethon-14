@@ -1,0 +1,383 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, initial-scale=1.0" />
+    <title>프로파일링 - 검사</title>
+    <link rel="stylesheet" href="{% static 'mainpage.css' %}" />
+    <link rel="stylesheet" href="{% static 'profiling.css' %}" />
+    <link rel="stylesheet" href="{% static 'timelog.css' %}" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div
+          class="container header-inner"
+          style="width: 100%; max-width: 1170px"
+        >
+          <a href="/" class="logo"
+            ><img src="{% static 'logo.png' %}" alt="n:EXIT logo"
+          /></a>
+          <div class="menu-and-login">
+            <nav class="nav">
+              <ul>
+                <li><a href="/timelog/">내 타임로그</a></li>
+                <li><a href="#">관련 기관</a></li>
+                <li><a href="#">폭력 설명</a></li>
+                <li><a href="#">탈출기</a></li>
+                <li>
+                  <a href="/profiling-page/" class="active"
+                    >프로파일링</a
+                  >
+                </li>
+                <li>
+                  <a href="/timelog/" class="profile-link">
+                    <span class="profile-img-wrap">
+                      <img src="../assets/profile.svg" alt="프로필" />
+                      <span class="profile-name">김여기님</span>
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </header>
+      <main>
+        <div class="main-bg profiling-main-bg">
+          <div class="container storage-main-row">
+            <aside class="storage-aside">
+              <div class="storage-aside-title">프로파일링</div>
+              <ul class="storage-aside-list">
+                <li class="active">프로파일링</li>
+              </ul>
+            </aside>
+            <section class="profiling-content">
+              <div class="profiling-banner-box">
+                <div class="profiling-banner-title">“내 연애는 안전할까?”</div>
+                <p>
+                  당신의 관계가 정말 괜찮은지, 전문가의 소견을 바탕으로 구성된
+                  문항체를 통해 스스로 점검해보세요.<br />
+                  내 감정은 어떤 상태일지, 지금 겪고 있는 건 어떤 형태일지,
+                  그리고 예전은 어떤 사람관계까지 확인할 수 있어요.<br />
+                  지금의 관계를 객관적으로 바라보는 것, 그게 탈출의 첫 걸음이 될
+                  수 있습니다.
+                </p>
+              </div>
+              <div class="profiling-last-result-row">
+                <button type="button" class="profiling-prev-result-btn">
+                  <img
+                    src="../assets/last_result-icon.svg"
+                    class="last_result_img"
+                  />
+                  지난 결과 불러오기
+                </button>
+              </div>
+              <form id="profilingForm">
+                <table class="profiling-table">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>그렇지 않다</th>
+                      <th>보통이다</th>
+                      <th>그렇다</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="profiling-question-title">
+                        1. 큰 소리로 호통을 친다.
+                      </td>
+                      <td>
+                        <label class="custom-checkbox">
+                          <input type="checkbox" name="q1" value="no" />
+                          <span></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="custom-checkbox">
+                          <input type="checkbox" name="q1" value="normal" />
+                          <span></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="custom-checkbox">
+                          <input type="checkbox" name="q1" value="yes" />
+                          <span></span>
+                        </label>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="profiling-question-title">
+                        2. 하루 동안 많은 양의 전화와 문자를 한다.
+                      </td>
+                      <td>
+                        <label class="custom-checkbox">
+                          <input type="checkbox" name="q2" value="no" />
+                          <span></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="custom-checkbox">
+                          <input type="checkbox" name="q2" value="normal" />
+                          <span></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="custom-checkbox">
+                          <input type="checkbox" name="q2" value="yes" />
+                          <span></span>
+                        </label>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="profiling-question-title">
+                        3. 통화내역이나 문자 등 휴대전화를 체크한다.
+                      </td>
+                      <td>
+                        <label class="custom-checkbox">
+                          <input type="checkbox" name="q3" value="no" />
+                          <span></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="custom-checkbox">
+                          <input type="checkbox" name="q3" value="normal" />
+                          <span></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="custom-checkbox">
+                          <input type="checkbox" name="q3" value="yes" />
+                          <span></span>
+                        </label>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="profiling-question-title">
+                        4. 옷차림이나 헤어스타일 등을 자기가 좋아하는 것으로
+                        하게 한다.
+                      </td>
+                      <td>
+                        <label class="custom-checkbox">
+                          <input type="checkbox" name="q4" value="no" />
+                          <span></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="custom-checkbox">
+                          <input type="checkbox" name="q4" value="normal" />
+                          <span></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="custom-checkbox">
+                          <input type="checkbox" name="q4" value="yes" />
+                          <span></span>
+                        </label>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="profiling-question-title">
+                        5. 내가 다른 사람들을 만나는 것을 싫어한다.
+                      </td>
+                      <td>
+                        <label class="custom-checkbox">
+                          <input type="checkbox" name="q5" value="no" />
+                          <span></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="custom-checkbox">
+                          <input type="checkbox" name="q5" value="normal" />
+                          <span></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="custom-checkbox">
+                          <input type="checkbox" name="q5" value="yes" />
+                          <span></span>
+                        </label>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="profiling-question-title">
+                        6. 날마다 만나자고 하거나 기다리지 말라는 데도 기다린다.
+                      </td>
+                      <td>
+                        <label class="custom-checkbox">
+                          <input type="checkbox" name="q6" value="no" />
+                          <span></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="custom-checkbox">
+                          <input type="checkbox" name="q6" value="normal" />
+                          <span></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="custom-checkbox">
+                          <input type="checkbox" name="q6" value="yes" />
+                          <span></span>
+                        </label>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="profiling-question-title">
+                        7. 만날 때마다 스킨쉽이나 성관계를 요구한다.
+                      </td>
+                      <td>
+                        <label class="custom-checkbox">
+                          <input type="checkbox" name="q7" value="no" />
+                          <span></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="custom-checkbox">
+                          <input type="checkbox" name="q7" value="normal" />
+                          <span></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="custom-checkbox">
+                          <input type="checkbox" name="q7" value="yes" />
+                          <span></span>
+                        </label>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="profiling-question-title">
+                        8. 내 과거를 끈질기게 캐묻는다.
+                      </td>
+                      <td>
+                        <label class="custom-checkbox">
+                          <input type="checkbox" name="q8" value="no" />
+                          <span></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="custom-checkbox">
+                          <input type="checkbox" name="q8" value="normal" />
+                          <span></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="custom-checkbox">
+                          <input type="checkbox" name="q8" value="yes" />
+                          <span></span>
+                        </label>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="profiling-question-title">
+                        9. 헤어지면 죽어버리겠다고 한다.
+                      </td>
+                      <td>
+                        <label class="custom-checkbox">
+                          <input type="checkbox" name="q9" value="no" />
+                          <span></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="custom-checkbox">
+                          <input type="checkbox" name="q9" value="normal" />
+                          <span></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="custom-checkbox">
+                          <input type="checkbox" name="q9" value="yes" />
+                          <span></span>
+                        </label>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="profiling-question-title">
+                        10. 둘이 있을 때는 폭력적이지만 다른 사람과 함께 있으면
+                        태도가 달라진다.
+                      </td>
+                      <td>
+                        <label class="custom-checkbox">
+                          <input type="checkbox" name="q10" value="no" />
+                          <span></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="custom-checkbox">
+                          <input type="checkbox" name="q10" value="normal" />
+                          <span></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="custom-checkbox">
+                          <input type="checkbox" name="q10" value="yes" />
+                          <span></span>
+                        </label>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <button
+                  type="submit"
+                  id="profiling-submit"
+                  class="profiling-submit"
+                  disabled
+                >
+                  결과 확인하기
+                </button>
+              </form>
+            </section>
+          </div>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container">
+          <div class="footer-left">
+            <img src="{% static 'footer-logo.svg' %}" alt="n:EXIT logo" />
+            <p>
+              대표전화 1234-5678<br />이용약관ㅣ개인정보처리방침<br />Copyright
+              ⓒ여기톤14팀 All rights reserved.
+            </p>
+          </div>
+          <div class="footer-right">
+            <a href="#"
+              ><img
+                src="{% static 'instagram-icon.svg' %}"
+                alt="Instagram"
+                class="instagram_img"
+            /></a>
+            <a href="#"
+              ><img src="{% static 'email-icon.svg' %}" alt="Mail" class="mail_img"
+            /></a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <div class="modal-bg" id="resultModal" style="display: none">
+      <div class="modal-box">
+        <div class="modal-title">지난 결과를 확인하세요.</div>
+        <div class="modal-list">
+          <div class="modal-item">
+            <div class="modal-item-title">
+              가스라이팅, 언어적 폭력 위험 노출
+            </div>
+            <div class="modal-item-date">2023.06.15</div>
+          </div>
+          <div class="modal-item">
+            <div class="modal-item-title">
+              가스라이팅, 신체적 폭력 위험성 노출
+            </div>
+            <div class="modal-item-date">2023.04.04</div>
+          </div>
+        </div>
+        <div class="modal-btns">
+          <button class="modal-confirm" disabled>확인하기</button>
+          <button class="modal-close">닫기</button>
+        </div>
+      </div>
+    </div>
+    <script src="{% static 'profiling.js' %}"></script>
+  </body>
+</html>

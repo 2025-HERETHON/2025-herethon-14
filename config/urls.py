@@ -20,6 +20,7 @@ from nexit.log_in.views import login_view, signup_view, UserLoginView
 from nexit.profiling.views import profiling_survey, submit_profiling, profiling_result, previous_results, load_previous_result
 from nexit.mainpage.views import mainpage, my_notes, organizations, violence_info, escape_stories, profiling_link
 from django.views.generic import RedirectView
+from config import views as fe_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,10 +32,18 @@ urlpatterns = [
     path('profiling/result/<int:result_id>/', profiling_result, name='profiling_result'),
     path('profiling/previous/', previous_results, name='previous_results'),
     path('profiling/previous/<int:prev_id>/', load_previous_result, name='load_previous_result'),
-    path('', mainpage, name='mainpage'),
+    path('', fe_views.mainpage, name='mainpage'),
     path('my-notes/', my_notes, name='my_notes'),
     path('organizations/', organizations, name='organizations'),
     path('violence-info/', violence_info, name='violence_info'),
     path('escape-stories/', escape_stories, name='escape_stories'),
     path('profiling-link/', profiling_link, name='profiling_link'),
+    path('timelog/', fe_views.timelog, name='timelog'),
+    path('timelog/post/', fe_views.timelog_post, name='timelog_post'),
+    path('timelog/record/', fe_views.timelog_record, name='timelog_record'),
+    path('profiling-page/', fe_views.profiling, name='profiling_page'),
+    path('profiling-result/', fe_views.profiling_result, name='profiling_result_page'),
+    path('profiling-last-result/', fe_views.profiling_last_result, name='profiling_last_result_page'),
+    path('escape-record/', fe_views.escape_record, name='escape_record'),
+    path('escape-post/', fe_views.escape_post, name='escape_post'),
 ]

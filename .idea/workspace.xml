@@ -4,76 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4859e6c1-c00c-4fa6-a770-cbe8c7017297" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/nexit/profiling/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nexit/timelog/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/2025-herethon-14.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/2025-herethon-14.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/exitlog/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/exitlog/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/exitlog/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/exitlog/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/exitlog/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/exitlog/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/exitlog/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/exitlog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/exitlog/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/exitlog/templates/exitlog/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/exitlog/templates/exitlog/create.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/exitlog/templates/exitlog/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/exitlog/templates/exitlog/detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/exitlog/templates/exitlog/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/exitlog/templates/exitlog/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/exitlog/templates/exitlog/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/exitlog/templates/exitlog/update.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/exitlog/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/exitlog/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/exitlog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/exitlog/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/exitlog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/exitlog/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/institutions/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/institutions/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/institutions/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/institutions/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/institutions/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/institutions/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/institutions/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/institutions/templates/institutions/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/institutions/templates/institutions/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/institutions/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/institutions/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/institutions/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/institutions/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/institutions/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/institutions/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/log_in/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/exitlog/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/log_in/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/log_in/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/log_in/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/log_in/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/log_in/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/institutions/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/log_in/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/log_in/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/log_in/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/log_in/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/log_in/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/log_in/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/main/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/log_in/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/main/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/main/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/main/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/main/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/main/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/main/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/main/templates/main/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/main/templates/main/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/main/templates/main/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/main/templates/main/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/main/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/main/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/main/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/main/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/main/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/mainpage/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/log_in/migrations/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/mainpage/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/mainpage/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/mainpage/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/mainpage/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/mainpage/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/main/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/mainpage/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/mainpage/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/mainpage/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/mainpage/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/mainpage/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/mainpage/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/profiling/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/mainpage/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/profiling/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/profiling/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/profiling/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/profiling/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/profiling/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/mainpage/migrations/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/profiling/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/profiling/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/profiling/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/profiling/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/profiling/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/profiling/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/timelog/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/profiling/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/timelog/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/timelog/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/timelog/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/timelog/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/timelog/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/timelog/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/timelog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/timelog/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/timelog/templates/timelog/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/timelog/templates/timelog/create.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/timelog/templates/timelog/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/timelog/templates/timelog/detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/timelog/templates/timelog/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/timelog/templates/timelog/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/timelog/templates/timelog/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/timelog/templates/timelog/update.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/timelog/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/timelog/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/timelog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/timelog/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nexit/nexit_prj/timelog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/nexit/timelog/views.py" afterDir="false" />
-    </list>
+    <list default="true" id="4859e6c1-c00c-4fa6-a770-cbe8c7017297" name="변경" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -101,8 +32,8 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "feature/yby",
-    "last_opened_file_path": "C:/2025-herethon-14",
+    "git-widget-placeholder": "backend",
+    "last_opened_file_path": "C:/Users/양보윤/OneDrive/바탕 화면/piro-git/Yang-Boyun/djangogirls",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>

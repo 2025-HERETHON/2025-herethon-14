@@ -1,0 +1,214 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, initial-scale=1.0" />
+    <title>프로파일링 결과 확인</title>
+    <link rel="stylesheet" href="{% static 'mainpage.css' %}" />
+    <link rel="stylesheet" href="{% static 'profiling_last_result.css' %}" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div
+          class="container header-inner"
+          style="width: 100%; max-width: 1170px"
+        >
+          <a href="/" class="logo"
+            ><img src="{% static 'logo.png' %}" alt="n:EXIT logo"
+          /></a>
+          <div class="menu-and-login">
+            <nav class="nav">
+              <ul>
+                <li><a href="/timelog/">내 타임로그</a></li>
+                <li><a href="#">관련 기관</a></li>
+                <li><a href="#">폭력 설명</a></li>
+                <li><a href="#">탈출기</a></li>
+                <li><a href="/profiling-page/" class="active">프로파일링</a></li>
+                <li>
+                  <a href="/timelog/" class="profile-link">
+                    <span class="profile-img-wrap">
+                      <img src="../assets/profile.svg" alt="프로필" />
+                      <span class="profile-name">김여기님</span>
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </header>
+      <main>
+        <div class="profiling-result-bg">
+          <div class="container profiling-result-row">
+            <section class="profiling-result-content">
+              <div class="profiling-result-title-row">
+                <a href="/profiling-page/" class="result-back">
+                  <img src="../assets/Group 152.svg" />
+                   지난 프로파일링 결과 불러오기
+                </a>
+              </div>
+              <div class="result_info_container">
+                <p class="last_result_log">2025.06.30 의 프로파일링 결과</p>
+                <div class="last_result_name">가스라이팅, 언어적 폭력 상황 노출</div>
+              </div>
+              <div class="profiling-result-card">
+                <div class="result-block result-block-1">
+                  <img
+                    src="../assets/result_illust.png"
+                    class="result-illust"
+                    alt="일러스트1"
+                  />
+                  <h2 class="result-main-title">
+                    김여기 님은<br />
+                    <span class="em">정서적 고립</span>의 위험에 처해 있어요.
+                  </h2>
+                  <div class="result-desc">
+                    <p>
+                      문항 응답을 기반으로 분석한 결과, 김여기 님은 연인 관계
+                      안에서 자신의 감정을 자주 억누<br />르거나, 애인의 눈치를
+                      지나치게 보는 상황을 반복하고 있으며, 애인의 말이나
+                      행동으로 <br />해 자존감이 낮아지거나 자기 의심을 느끼는
+                      패턴이 나타나고 있습니다.<br /><br /></p>
+                      이러한 상황은 장기적으로 가스라이팅과 심리적 의존 구조로
+                      연결될 가능성이 높습니다.
+                    </p>
+                  </div>
+                  <h2 class="result-main-title">이렇게 행동해 보세요.</h2>
+                  <ul class="result-actions">
+                    <li>
+                      <span class="strong"
+                        >신뢰할 수 있는 주변인에게 얘기해 보세요.</span
+                      ><br />
+                      <span class="result-desc"
+                        >신뢰할 수 있는 주변인에게 조심스럽게 이야기를
+                        꺼내보세요.<br /> 단순한 대화라도, 상황을 정리해서 말해보는
+                        것이 큰 도움이 됩니다.</span
+                      >
+                    </li>
+                    <li>
+                      <span class="strong">가까운 센터를 방문해 보세요.</span
+                      ><br />
+                      <span class="result-desc"
+                        >감정이 흔들릴 때, 전문가의 통찰적인 시선은 큰 힘이
+                        됩니다.</span
+                      >
+                    </li>
+                    <li>
+                      <span class="strong">기록을 시작해 보세요.</span><br />
+                      <span class="result-desc"
+                        >그 사람의 말과 행동, 내가 느낀 감정을 날짜와 함께
+                        메모해두면 현실을 객관적으로<br /> 파악하는 데 도움이 됩니다.
+                        법적 분쟁이 있을 경우에는 증거로 쓸 수 있습니다.</span
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <hr class="result-hr" />
+                <div class="result-block result-block-2">
+                  <img
+                    src="../assets/result_illust2.png"
+                    class="result-illust"
+                    alt="일러스트2"
+                  />
+                  <h2 class="result-main-title">
+                    김여기 님의 연인은<br />
+                    <span class="em">감정적으로 통제하는 사람</span>일 가능성이
+                    높습니다.
+                  </h2>
+                  <div class="result-desc">
+                    <p>
+                      연인 관계에서 김여기 님의 애인은 "내가 널 이렇게까지
+                      신경쓰는 건 너를 사랑해서야",<br />
+                      "다 너 잘되라고 하는 말이야" 등의 표현을 자주 사용하며
+                      상대방의 감정·행동을 자신의 <br />기준에 맞추려는 경향을
+                      보입니다.
+                    </p>
+                  </div>
+                  <h3 class="result-main-title">이런 부분을 주의하세요.</h3>
+                  <ul class="result-cautions">
+                    <li>
+                      <span class="strong">가스라이팅</span><br />
+                      <span class="result-desc"
+                        >반복적으로 김여기 님의 말이나 감정을 '오해', '예민함',
+                        '피곤함'으로 치부하고,<br /> 결국 죄책감을 느끼게 만드는
+                        말들을 주의하세요.</span
+                      >
+                    </li>
+                    <li>
+                      <span class="strong">물리적 거리 침범</span><br />
+                      <span class="result-desc"
+                        >"왜 그렇게 말해?", "그럴 거면 나랑 왜 만나?"<br /> 등의
+                        상대를 흔들고 책임을 돌리는 표현을 자주 사용한다면
+                        경계가 필요합니다.</span
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div class="result-final-msg">
+                  <h2 class="result-main-title">마지막으로</h2>
+                  <p class="result-desc">
+                    지금 겪고 있는 일이 별거 아닌 것 같다고 느껴질 수 있어요.<br />
+                    하지만, 이건 작은 문제가 아니라 지금 바로 살펴야 할 내 삶의
+                    신호입니다.
+                  </p>
+                  <p class="result-desc"><br />
+                    김여기 님은 잘못한 게 없어요. 이제는 나 자신을 믿을
+                    차례입니다.
+                  </p>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </main>
+       <footer class="footer">
+        <div class="container">
+          <div class="footer-left">
+            <img src="../assets/footer-logo.svg" alt="n:EXIT logo" />
+            <p>
+              대표전화 1234-5678<br />이용약관ㅣ개인정보처리방침<br />Copyright
+              ⓒ여기톤14팀 All rights reserved.
+            </p>
+          </div>
+          <div class="footer-right">
+            <a href="#"
+              ><img src="../assets/instagram-icon.svg" alt="Instagram" class="instagram_img"
+            /></a>
+            <a href="#"
+              ><img src="../assets/email-icon.svg" alt="Mail" class="mail_img"
+            /></a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <div class="modal-overlay" id="modalOverlay" style="display: none">
+      <div class="modal" role="dialog" aria-modal="true">
+        <form id="saveForm" autocomplete="off" onsubmit="return false;">
+          <input
+            class="modal-input"
+            id="filenameInput"
+            type="text"
+            maxlength="24"
+            placeholder="제목을 입력하세요."
+          />
+          <div class="modal-actions">
+            <button
+              class="modal-save-btn"
+              id="modalSaveBtn"
+              type="submit"
+              disabled
+            >
+              저장하기
+            </button>
+            <button class="modal-cancel-btn" type="button" id="modalCancelBtn">
+              닫기
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+  <script src="{% static 'profiling_last_result.js' %}"></script>
+</html>

@@ -1,0 +1,117 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exit</title>
+    <link rel="stylesheet" href="{% static 'styles/exit.css' %}"/>
+</head>
+<body>
+    <div class="page-container">
+        <header class="header">
+            <div class="header-inner">
+                <img src="../assets/header-logo.png" alt="" class="header-logo" />
+                <nav class="nav-menu">
+                    <ul class="menu">
+                        <li><a href="#">내 저장소</a></li>
+                        <li><a href="#">관련 기관</a></li>
+                        <li><a href="#">폭력 설명</a></li>
+                        <li class="active"><a href="#">탈출기</a></li>
+                        <li><a href="#">프로파일링</a></li>
+                    </ul>
+                </nav>
+                <div class="user-profile">
+                    <a href="mypage.html" class="profile-link">
+                        <img src="../assets/profile(Nav).svg" alt="" class="profile-img">
+                        <span class="username">김여기</span>
+                        <span class="username">님</span>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <main class="layout">
+            <aside class="sidebar">
+                <h2 class="sidebar-title">탈출기</h2>
+                <hr>
+                <ul class="sidebar-menu">
+                    <li><a href="exit.html" id="allBtn">전체보기</li>
+                    <li><a href="scrap.html" id="scrapBtn">나의 스크랩</a></li>
+                </ul>
+            </aside>
+
+            <section class="content">
+                <section class="exit-banner">
+                    <p class="highlight">탈출은 용기의 다른 이름입니다.</p>
+                    <p class="desc">지금, 누군가의 탈출기를 통해 삶의 다음 순간으로 나아갈 힘을 만나요.</p>
+                </section>
+
+                <div class="sort-container">
+                    <button class="sort-trigger" onclick="toggleSort()">최신순 <span class="arrow">▼</span></button>
+                    <ul class="sort-popup" id="sortPopup">
+                        <li onclick="selectSort('최신순')">최신순</li>
+                        <li onclick="selectSort('오래된 순')">오래된 순</li>
+                    </ul>
+                </div>
+
+                <!-- JS로 카드 렌더링할 영역 -->
+                <section class="escape-card-grid" id="cardGrid"></section>
+                <section class="post-view hidden" id="postView">
+                    <div class="post-header">
+                        <h1 id="view-title"></h1>
+                        <p id="view-date" class="date"></p>
+                    </div>
+                    <div id="view-body" class="post-body"></div>
+                    <div class="post-footer">
+                        <div class="prev-post">
+                            <p class="label">이전글</p>
+                            <p class="title" id="prev-title"></p>
+                            <p class="date" id="prev-date"></p>
+                        </div>
+                        <hr>
+                        <div class="next-post">
+                            <p class="label">다음글</p>
+                            <p class="title" id="next-title"></p>
+                            <p class="date" id="next-date"></p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 작성하기 버튼 -->
+                <div class="bottom-area">
+                    <div class="pagination">
+                        <span>이전</span>
+                        <span class="active">1</span>
+                        <span>다음</span>
+                    </div>
+
+                    <button class="write-button" onclick="location.href='../pages/write.html'">
+                        <img src="../assets/write.png" alt="작성 아이콘" />
+                        작성하기
+                    </button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        function showTab(tab) {
+            document.getElementById('tab-all').style.display = tab === 'all' ? 'block' : 'none';
+            document.getElementById('tab-scrap').style.display = tab === 'scrap' ? 'block' : 'none';
+
+            const menuItems = document.querySelectorAll('.sidebar-menu li');
+            menuItems.forEach(li => li.classList.remove('active'));
+            if (tab === 'all') menuItems[0].classList.add('active');
+            else menuItems[1].classList.add('active');
+        }
+    </script>
+
+    <script src="../scripts/exit.js"></script>
+    <script>
+        renderCards(cards);
+    </script>
+<section class="post-view hidden" id="postView">...</section>
+
+</body>
+</html>
