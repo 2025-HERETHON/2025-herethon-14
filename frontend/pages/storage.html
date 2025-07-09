@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, initial-scale=1.0" />
+    <title>내 저장소 - 전체보기</title>
+    <link rel="stylesheet" href="../styles/main.css" />
+    <link rel="stylesheet" href="../styles/storage.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div
+          class="container header-inner"
+          style="width: 100%; max-width: 1170px"
+        >
+          <a href="main.html" class="logo"
+            ><img src="Frame 299.png" alt="n:EXIT logo"
+          /></a>
+          <div class="menu-and-login">
+            <nav class="nav">
+              <ul>
+                <li><a href="storage.html" class="active">내 저장소</a></li>
+                <li><a href="#">관련 기관</a></li>
+                <li><a href="violence.html">폭력 설명</a></li>
+                <li><a href="#">탈출기</a></li>
+                <li><a href="profiling.html">프로파일링</a></li>
+                <li>
+                  <a href="storage.html" class="profile-link">
+                    <span class="profile-img-wrap">
+                      <img src="Group 76.svg" alt="프로필" />
+                      <span class="profile-name">김여기님</span>
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </header>
+      <main>
+        <div class="main-bg">
+          <div class="container storage-main-row">
+            <aside class="storage-aside">
+              <div class="storage-aside-title">내 저장소</div>
+              <ul class="storage-aside-list">
+                <li id="tab-all" class="active">전체보기</li>
+                <li id="tab-file">증거모음</li>
+              </ul>
+            </aside>
+            <section class="storage-content">
+              <div class="storage-month-nav">
+                <button id="prevMonthBtn" class="month-arrow-btn">
+                  <img src="Vector.png" alt="이전달" width="6" height="12" />
+                </button>
+                <span class="storage-month-text" id="monthText"
+                  >2025년 6월</span
+                >
+                <button id="nextMonthBtn" class="month-arrow-btn">
+                  <img src="Group 110.png" alt="다음달" width="6" height="12" />
+                </button>
+              </div>
+              <div class="storage-table-wrap">
+                <table class="storage-table" id="storageTable">
+                  <thead>
+                    <tr>
+                      <th>번호</th>
+                      <th class="title-header">제목</th>
+                      <th>날짜</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+              <div class="storage-btn-row">
+                <a href="record.html">
+                  <button class="storage-record-btn">
+                    <img src="Group 136.svg" alt="기록" />
+                    기록하기
+                  </button>
+                </a>
+              </div>
+              <div class="pagination-row">
+                <div class="pagination" id="pagination"></div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container">
+          <div class="footer-left">
+            <img src="Frame 300.svg" alt="n:EXIT logo" />
+            <p>
+              대표전화 1234-5678<br />이용약관ㅣ개인정보처리방침<br />Copyright
+              ⓒ여기톤14팀 All rights reserved.
+            </p>
+          </div>
+          <div class="footer-right">
+            <a href="#"
+              ><img src="Group 107.svg" alt="Instagram" class="instagram_img"
+            /></a>
+            <a href="#"
+              ><img src="Group 108.svg" alt="Mail" class="mail_img"
+            /></a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../scripts/storage.js"></script>
+  </body>
+</html>
