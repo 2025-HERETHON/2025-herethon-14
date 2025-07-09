@@ -16,13 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from log_in.views import login_view, signup_view
-from profiling.views import profiling_survey, submit_profiling, profiling_result, previous_results, load_previous_result
-from mainpage.views import mainpage, my_notes, organizations, violence_info, escape_stories, profiling_link
+from nexit.log_in.views import login_view, signup_view, UserLoginView
+from nexit.profiling.views import profiling_survey, submit_profiling, profiling_result, previous_results, load_previous_result
+from nexit.mainpage.views import mainpage, my_notes, organizations, violence_info, escape_stories, profiling_link
+from django.views.generic import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('login/', login_view, name='login'),
+    path('login/', UserLoginView.as_view(), name='login'),
+    path('accounts/login/', RedirectView.as_view(url='/login/', permanent=False)),
     path('signup/', signup_view, name='signup'),
     path('profiling/', profiling_survey, name='profiling_survey'),
     path('profiling/submit/', submit_profiling, name='submit_profiling'),

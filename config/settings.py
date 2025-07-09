@@ -37,6 +37,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'requests',
+    'nexit.log_in',
+    'nexit.exitlog',
+    'nexit.institutions',
+    'nexit.main',
+    'nexit.mainpage',
+    'nexit.timelog',
+    'nexit.profiling',
+
+
 ]
 
 MIDDLEWARE = [
