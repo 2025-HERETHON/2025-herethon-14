@@ -1,0 +1,135 @@
+.storage-detail-title {
+  font-weight: 700;
+  margin: 22px 0 8px 0;
+  color: var(--black, #1f1f1f);
+  font-family: "Noto Sans";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.storage-detail-date {
+  font-size: 16px;
+  margin-bottom: 24px;
+  color: var(--grey03, #969696);
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.storage-detail-body {
+  width: 940px;
+  margin-bottom: 24px;
+  word-break: keep-all;
+  color: var(--black, #1f1f1f);
+  font-family: "Noto Sans";
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.storage-detail-img-row {
+  display: flex;
+  justify-content: left;
+  margin: 18px 0;
+}
+.storage-detail-img {
+  max-width: 320px;
+  border-radius: 12px;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.06);
+}
+.storage-detail-footer {
+  color: #222;
+  color: var(--black, #1f1f1f);
+  font-family: "Noto Sans";
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-bottom: 60px;
+}
+
+.storage-detail-actions {
+  display: flex;
+  justify-content: right;
+  gap: 14px;
+}
+.storage-detail-actions button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.storage-detail-prev-list {
+  border-top: 1.5px solid var(--grey02, #d4d4d4);
+  margin-top: 10px;
+  padding-top: 3px;
+}
+.storage-detail-prev-title {
+  margin-left: 15px;
+  color: var(--grey02, #d4d4d4);
+  font-family: "Noto Sans";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.storage-detail-prev-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1.5px solid var(--grey02, #d4d4d4);
+  background: var(--white, #fff);
+  min-height: 60px;
+  padding: 25px;
+  gap: 10px;
+  cursor: pointer;
+}
+.storage-detail-prev-label {
+  font-size: 12px;
+  color: #bbb;
+  font-weight: 600;
+  margin-bottom: 2px;
+  line-height: 1;
+}
+.storage-detail-prev-item-title {
+  color: #000;
+  font-family: "Noto Sans";
+  font-size: 20px;
+  padding: 5px 0 5px 0;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.storage-detail-prev-item-date {
+  color: var(--grey03, #969696);
+  font-family: "Noto Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.storage-detail-prev-thumb {
+  width: 90px;
+  height: 90px;
+  flex-shrink: 0;
+  aspect-ratio: 1/1;
+  border-radius: 6px;
+  object-fit: cover;
+  margin-left: 12px;
+}
+
+.view_all_btn a {
+  color: var(--grey03, #969696);
+  margin-left: 5px;
+  font-family: "Noto Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.edit_btn {
+  width: 65.121px;
+  height: 21.121px;
+  flex-shrink: 0;
+}
