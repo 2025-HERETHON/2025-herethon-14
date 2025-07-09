@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
-    window.location.href = "profiling_result.html";
+    window.location.href = "../pages/profiling_result.html";
   });
 });
 
@@ -80,6 +80,6 @@ confirmBtn.addEventListener("click", function () {
     // 지난 결과 페이지 이동
     document.getElementById("resultModal").style.display = "none";
     document.body.style.overflow = "";
-    window.location.href = "last_result.html";
+    window.location.href = "../pages/profiling_last_result.html";
   }
 });
