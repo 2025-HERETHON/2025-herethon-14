@@ -125,5 +125,5 @@ document.querySelector(".record-upload-btn").onclick = function () {
   let records = JSON.parse(localStorage.getItem("records") || "[]");
   records.unshift(record);
   localStorage.setItem("records", JSON.stringify(records));
-  window.location.href = "storage.html";
+  window.location.href = "../pages/storage.html";
 };
