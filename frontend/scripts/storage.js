@@ -122,7 +122,7 @@ function renderTable() {
       <td>${data.length - (start + i)}</td>
       <td>${row.title}${
               row.hasFile
-                ? ' <img class="file-icon" src="file_icon.svg" alt="첨부파일" />'
+                ? ' <img class="file-icon" src="../assets/img_icon.svg" alt="첨부파일" />'
                 : ""
             }</td>
       <td>${
