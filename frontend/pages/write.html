@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>작성하기</title>
+    <link rel="stylesheet" href="../styles/write.css">
+</head>
+<body>
+    <div class="page-container">
+        <header class="header">
+            <div class="header-inner">
+                <img src="../assets/header-logo.png" alt="" class="header-logo" />
+                <nav class="nav-menu">
+                    <ul class="menu">
+                        <li><a href="#">내 저장소</a></li>
+                        <li><a href="#">관련 기관</a></li>
+                        <li><a href="#">폭력 설명</a></li>
+                        <li class="active"><a href="#">탈출기</a></li>
+                        <li><a href="#">프로파일링</a></li>
+                    </ul>
+                </nav>
+                <div class="user-profile">
+                    <a href="mypage.html" class="profile-link">
+                        <img src="../assets/profile(Nav).svg" alt="" class="profile-img">
+                        <span class="username">김여기</span>
+                        <span class="username">님</span>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <main class="write-page">
+            <div class="write-header">
+                <button class="back-button"><img src="../assets/sign.png"></im></button>
+                <h2>작성하기</h2>
+                <button class="submit-button">업로드</button>
+            </div>
+            <div class="write-form">
+                <div class="date-title-box">
+                    <div class="date-select">
+                        <input type="date" id="dateInput">
+                    </div>
+                    <input type="text" class="title-input" placeholder="제목을 입력해 주세요.">
+                </div>
+
+                <div class="editor-box">
+                    <div class="toolbar">
+                        <button><img src="../assets/file.png" alt="">첨부</button>
+                        <button><img src="../assets/link.png" alt="">링크</button>
+                        <button><img src="../assets/B.png" width="13px" height="16px"></button>
+                        <button><img src="../assets/I.png" width="14px" height="16px"></button>
+                        <button><img src="../assets/U.png" width="16px" height="18px"></button>
+                        <button><span style="text-decoration: underline;"><img src="../assets/line.png"></span></button>
+                    </div>
+                    <textarea class="content-input" placeholder="내용을 입력하세요."></textarea>
+                </div>
+            </div>
+        </main>
+    </div>
+
+        <script>
+            window.addEventListener('DOMContentLoaded', () => {
+            const dateInput = document.getElementById('dateInput');
+            const today = new Date();
+            const year = today.getFullYear();
+            const month = String(today.getMonth() + 1).padStart(2, '0');
+            const day = String(today.getDate()).padStart(2, '0');
+            dateInput.value = `${year}-${month}-${day}`;
+            });
+        </script>
+</body>
+</html>
