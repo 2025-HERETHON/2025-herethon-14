@@ -32,10 +32,10 @@ document.addEventListener("DOMContentLoaded", () => {
       const cardHtml = `
         <div class="escape-card" data-index="${idx}">
           <div class="card-header">
-            <div class="profile-img"><img src="../assets/profile.png" alt="프로필 이미지" /></div>
+            <div class="profile-img"><img src="../assets/exitlog_profile.svg" alt="프로필 이미지" /></div>
             <div class="user-name">${card.username}</div>
             <button class="scrap-icon active">
-              <img src="../assets/scrab.png">
+              <img src="../assets/scrap.png">
             </button>
           </div>
           <div class="card-body">

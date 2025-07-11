@@ -96,7 +96,7 @@ document.addEventListener("click", function (e) {
 
     const img = button.querySelector("img");
     img.src = `../assets/${
-      cards[index].isScrapped ? "scrab.png" : "nonscrab.png"
+      cards[index].isScrapped ? "scrap.png" : "nonscrap.png"
     }`;
 
     const scrappedCards = cards.filter((card) => card.isScrapped);
@@ -201,11 +201,11 @@ document.addEventListener("click", function (e) {
             card.date === date
           )
       );
-      button.querySelector("img").src = "../assets/nonscrab.png";
+      button.querySelector("img").src = "../assets/nonscrap.png";
     } else {
       // 추가
       saved.push({ username, title, content, date, isScrapped: true });
-      button.querySelector("img").src = "../assets/scrab.png";
+      button.querySelector("img").src = "../assets/scrap.png";
     }
 
     localStorage.setItem("scrappedCards", JSON.stringify(saved));
@@ -220,11 +220,11 @@ function renderCards(cardsArray) {
     const cardHtml = `
             <div class="escape-card" data-index="${index}">
                 <div class="card-header">
-                    <div class="profile-img"><img src="../assets/profile.png" alt="프로필 이미지" /></div>
+                    <div class="profile-img"><img src="../assets/exitlog_profile.svg" alt="프로필 이미지" /></div>
                     <div class="user-name">${card.username}</div>
                     <button class="scrap-icon" data-index="${index}">
                         <img src="../assets/${
-                          card.isScrapped ? "scrab.png" : "nonscrab.png"
+                          card.isScrapped ? "scrap.png" : "nonscrap.png"
                         }" />
                     </button>
                 </div>

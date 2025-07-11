@@ -7,7 +7,7 @@ const post = {
     "처음에는 내가 더 잘하면 될 줄 알았는데, 이젠 뭘 어떻게 해도 쟤 기분이 먼저고, 나는 늘 눈치만 보는 사람이 됐다.",
     "조금만 잘못해도 인신공격을 한다.",
   ],
-  image: "kakaotalk.png",
+  image: "../assets/kakaotalk.png",
   footer: [
     "진짜... 그냥 대화가 안 된다.",
     "말을 하면 할수록 내가 이상한 사람이 되는 기분이다.",
@@ -18,7 +18,7 @@ const prevPosts = [
   {
     title: "맨날 나를 의심한다",
     date: "2025.06.29",
-    thumb: "image 25.svg",
+    thumb: "../assets/post-img.svg",
   },
 ];
 const nextPosts = [

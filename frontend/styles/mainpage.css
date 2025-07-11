@@ -92,7 +92,7 @@ body {
   height: 800px;
   flex-shrink: 0;
   margin: 0 auto;
-  background-image: url("/assets/banner-bg.png");
+  background-image: url("/frontend/assets/banner-bg.png");
   background-size: cover;
   background-position: center;
   padding: 120px 0;
@@ -169,7 +169,7 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
   gap: 16px;
   background-color: #e8f3ef;
-  background-image: url("/assets/main-card-bg.svg");
+  background-image: url("../assets/main-card-bg.svg");
 }
 
 .card.wide {
