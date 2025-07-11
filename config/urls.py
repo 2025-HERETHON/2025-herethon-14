@@ -23,6 +23,7 @@ from django.views.generic import RedirectView
 from config import views as fe_views
 from nexit.exitlog.views import exitlog_page, exitlog_post, exitlog_record
 from django.shortcuts import render, redirect
+from nexit.timelog.views import timelog_post_demo
 
 urlpatterns = [
     path('pages/<str:filename>.html', lambda request, filename: redirect(f'/{filename}.html', permanent=True)),
@@ -63,4 +64,5 @@ urlpatterns = [
     path('', include('nexit.timelog.urls')),
     path('institutions/', include('nexit.institutions.urls')),
     path('login/api/', login_api, name='login_api'),
+    path('timelog_post.html', timelog_post_demo, name='timelog_post_html'),
 ]

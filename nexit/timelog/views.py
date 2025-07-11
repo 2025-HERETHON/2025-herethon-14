@@ -108,3 +108,8 @@ def delete(request, id):
     timelog.delete()
     return redirect('timelog:index')
 
+
+def timelog_post_demo(request):
+    # context 없이 템플릿만 렌더링 (미리보기용)
+    return render(request, 'timelog_post.html', {})
+

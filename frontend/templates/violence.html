@@ -12,6 +12,7 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="icon" type="image/svg+xml" href="{% static 'assets/favicon.svg' %}" />
   </head>
   <body>
     <div class="wrapper">
@@ -36,7 +37,7 @@
                   <a href="timelog.html" class="profile-link">
                     <span class="profile-img-wrap">
                       <img src="{% static 'assets/profile.svg' %}" alt="프로필" />
-                      <span class="profile-name">김여기님</span>
+                      <span class="profile-name">{{ user.username }}님</span>
                     </span>
                   </a>
                 </li>

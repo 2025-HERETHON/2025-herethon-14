@@ -35,7 +35,7 @@
                   <a href="timelog.html" class="profile-link">
                     <span class="profile-img-wrap">
                       <img src="{% static 'assets/profile.svg' %}" alt="프로필" />
-                      <span class="profile-name">김여기님</span>
+                      <span class="profile-name">{{ user.username }}님</span>
                     </span>
                   </a>
                 </li>
@@ -58,7 +58,7 @@
               <div class="storage-month-nav">
                 <button id="prevMonthBtn" class="month-arrow-btn">
                   <img
-                    src="{% static 'assets/Vector.png' %}"
+                    src="{% static 'assets/cal-left.svg' %}"
                     alt="이전달"
                     width="6"
                     height="12"
@@ -69,7 +69,7 @@
                 >
                 <button id="nextMonthBtn" class="month-arrow-btn">
                   <img
-                    src="{% static 'assets/Group 110.png' %}"
+                    src="{% static 'assets/cal-right.png' %}"
                     alt="다음달"
                     width="6"
                     height="12"

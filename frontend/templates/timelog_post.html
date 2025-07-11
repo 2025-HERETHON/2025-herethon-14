@@ -35,7 +35,7 @@
                   <a href="timelog.html" class="profile-link">
                     <span class="profile-img-wrap">
                       <img src="{% static 'assets/profile.svg' %}" alt="프로필" />
-                      <span class="profile-name">김여기님</span>
+                      <span class="profile-name">{{ user.username }}님</span>
                     </span>
                   </a>
                 </li>
@@ -57,7 +57,7 @@
             </aside>
             <section class="storage-content" style="padding: 0 40px">
               <div class="view_all_btn" style="margin-top: 30px">
-                <a href="timelog.html"><img src="{% static 'assets/Group 109.svg' %}" /></a>
+                <a href="timelog.html"><img src="{% static 'assets/cal-left.svg' %}" /></a>
                 <a href="timelog.html"> 전체글 보기</a>
               </div>
               <h2 class="storage-detail-title"></h2>
@@ -67,14 +67,15 @@
                 <img class="storage-detail-img" />
               </div>
               <div class="storage-detail-footer"></div>
-              <div class="storage-detail-actions">
-                <button>
-                  <img
-                    src="{% static 'assets/Group 371.png' %}"
-                    class="edit_btn"
-                    width="22"
-                    height="22"
-                  />
+              <div class="storage-detail-actions" data-post-id="123">
+                {% if timelog and timelog.id %}
+                <button class="del_btn">
+                  <img src="{% static 'assets/del.png' %}" class="del_btn" width="20" height="20"/>
+                  <a href="{% url 'timelog:delete' timelog.id %}">삭제</a>
+                </button>
+                {% endif %}
+                <button class="edit_btn">
+                  <img src="{% static 'assets/edit.png' %}" class="edit_btn" width="20" height="20"/>
                 </button>
               </div>
               <div class="storage-detail-prev-list"></div>
@@ -109,3 +110,4 @@
     <script src="{% static 'scripts/post.js' %}"></script>
   </body>
 </html>
+
