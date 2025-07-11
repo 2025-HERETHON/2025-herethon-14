@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, initial-scale=1.0" />
+    <title>내 타임로그 - 기록하기</title>
+    <link rel="stylesheet" href="../styles/mainpage.css" />
+    <link rel="stylesheet" href="../styles/timelog_record.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div
+          class="container header-inner"
+          style="width: 100%; max-width: 1170px"
+        >
+          <a href="mainpage.html" class="logo"
+            ><img src="../assets/logo.png" alt="n:EXIT logo"
+          /></a>
+          <div class="menu-and-login">
+            <nav class="nav">
+              <ul>
+                <li><a href="timelog.html" class="active">내 타임로그</a></li>
+                <li><a href="agency.html">관련 기관</a></li>
+                <li><a href="violence.html">폭력 설명</a></li>
+                <li><a href="exitlog.html">탈출기</a></li>
+                <li><a href="profiling.html">프로파일링</a></li>
+                <li>
+                  <a href="timelog.html" class="profile-link">
+                    <span class="profile-img-wrap">
+                      <img src="../assets/profile.svg" alt="프로필" />
+                      <span class="profile-name">김여기님</span>
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </header>
+      <main>
+        <div class="container record-main-align">
+          <div class="record-title-wrap">
+            <div class="record-title-group">
+              <a href="timelog.html">
+                <img
+                  src="Group 152.svg"
+                  class="goStorageBtn"
+                  style="cursor: pointer"
+                />
+              </a>
+              <span class="record-title">기록하기</span>
+            </div>
+            <div class="record-btn-area">
+              <button class="record-upload-btn">업로드</button>
+            </div>
+          </div>
+          <div class="record-covered">
+            <div class="record-box">
+              <div class="record-date-select">
+                <span
+                  id="kor-date-view"
+                  tabindex="0"
+                  style="position: relative"
+                >
+                  <span id="kor-date-text"></span>
+                  <input id="record-date" type="date" />
+                  <img class="calendar-icon" src="Group 143.svg" alt="달력" />
+                </span>
+                <input
+                  class="record-input-title"
+                  type="text"
+                  placeholder="제목을 입력해 주세요."
+                />
+              </div>
+              <div class="record-editor-wrap">
+                <div class="record-toolbar">
+                  <button
+                    class="toolbar-btn"
+                    type="button"
+                    id="file-upload-btn"
+                  >
+                    <img
+                      src="../assets/Group 145.svg"
+                      alt="파일"
+                      class="file_img"
+                    />파일
+                  </button>
+                  <input
+                    type="file"
+                    id="file-input"
+                    style="display: none"
+                    multiple
+                  />
+                  <button
+                    class="toolbar-btn"
+                    type="button"
+                    id="link-upload-btn"
+                  >
+                    <img src="Group 146.svg" alt="링크" class="link_img" />링크
+                  </button>
+                  <span class="toolbar-divider"></span>
+                  <button class="toolbar-btn" type="button" id="bold-btn">
+                    <img src="../assets/Group 148.svg" />
+                  </button>
+                  <button class="toolbar-btn" type="button" id="italic-btn">
+                    <img src="../assets/Group 149.svg" />
+                  </button>
+                  <button class="toolbar-btn" type="button" id="underline-btn">
+                    <img src="../assets/Group 151.svg" />
+                  </button>
+                  <button class="toolbar-btn" type="button" id="align-btn">
+                    <img src="../assets/Group 150.svg" />
+                  </button>
+                </div>
+                <div
+                  class="record-content"
+                  id="record-content"
+                  contenteditable="true"
+                  spellcheck="true"
+                  style="
+                    min-height: 160px;
+                    max-height: 160px;
+                    height: 160px;
+                    width: 100%;
+                    border: none;
+                    background: transparent;
+                    padding: 16px;
+                    font-size: 15px;
+                    color: #333;
+                    outline: none;
+                    border-radius: 0 0 12px 12px;
+                    overflow-y: auto;
+                    resize: none;
+                    position: relative;
+                  "
+                  data-placeholder="내용을 입력하세요."
+                ></div>
+              </div>
+              <div class="record-file-link-list" id="file-link-list"></div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="../scripts/timelog_record.js"></script>
+  </body>
+</html>

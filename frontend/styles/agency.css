@@ -1,0 +1,65 @@
+* {
+  font-family: "Noto Sans", sans-serif;
+}
+
+/* 추가 커스텀(agency 페이지 한정) */
+.agency-content-wrap {
+  width: 100%;
+  max-width: 820px;
+  margin: 0 auto;
+}
+.agency-section-title {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 30px 0 8px 0;
+  font-size: 17px;
+  font-weight: 600;
+  color: #222;
+}
+.agency-section-desc {
+  margin-bottom: 22px;
+  text-align: left;
+  padding: 10px 0 10px 0;
+  align-self: stretch;
+  color: var(--black, #1f1f1f);
+  font-family: "Noto Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.agency-placeholder {
+  width: 485px;
+  height: 225px;
+  flex-shrink: 0;
+  background: var(--grey01, #f3f3f3);
+}
+.agency-btn-outline {
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 7px;
+  margin-right: 0;
+  font-family: "Noto Sans";
+  width: 200px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 20px 20px 20px 0px;
+  border: 1.5px solid var(--black, #1f1f1f);
+  background: var(--white, #fff);
+  color: var(--black, #1f1f1f);
+  text-align: center;
+  font-style: normal;
+  line-height: normal;
+}
+@media (max-width: 1100px) {
+  .agency-content-wrap {
+    max-width: 100%;
+    padding: 16px;
+  }
+  .agency-placeholder {
+    max-width: 100%;
+  }
+}

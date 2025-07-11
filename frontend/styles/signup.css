@@ -1,0 +1,224 @@
+* {
+  font-family: "Noto Sans", sans-serif;
+}
+
+body {
+  background: #fafbfc;
+  margin: 0;
+  padding: 0;
+}
+.signup-page-outer {
+  width: 100vw;
+  min-height: 100vh;
+  background: #fafbfc;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.wrapper {
+  width: 1920px;
+  height: 1300px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.signup-section {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+  padding: 50px;
+}
+.signup-title-container {
+  display: flex;
+  width: 560px;
+}
+.signup-title {
+  margin-bottom: 55px;
+  margin-top: 10px;
+  letter-spacing: 0.8px;
+  text-align: center;
+  font-family: "Noto Sans";
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  color: var(--mint03, #78bda6);
+}
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+  align-items: center;
+}
+.signup-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: center;
+}
+.input-wrapper {
+  position: relative;
+  width: 560px;
+  display: flex;
+  align-items: center;
+}
+.signup-input {
+  padding: 20px 20px;
+  font-size: 20px;
+  outline: none;
+  border-radius: 40px;
+  border: 1.5px solid var(--grey02, #d4d4d4);
+  background: var(--white, #fff);
+  transition: border 0.16s;
+  margin-bottom: 0;
+  font-family: "Noto Sans";
+  font-weight: 500;
+  width: 100%;
+  height: 52px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+.signup-input[type="password"] {
+  font-size: 28px;
+  letter-spacing: 2px;
+}
+.signup-input::placeholder {
+  color: var(--grey03, #969696);
+  font-family: "Noto Sans";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.signup-input.active {
+  border: 1.5px solid #78bda6 !important;
+}
+.signup-input.error {
+  border: 1.5px solid #ff5d5d !important;
+}
+.signup-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 560px;
+  height: 67.325px;
+  flex-shrink: 0;
+  border-radius: 40px;
+  background: var(--grey02, #d4d4d4);
+  color: var(--white, #fff);
+  font-family: "Noto Sans";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  border: none;
+  padding: 13px 0;
+  margin-top: 16px;
+  margin-bottom: 60px;
+  transition: background 0.13s;
+  cursor: pointer;
+}
+.signup-btn.active {
+  background: #b3dccb !important;
+  color: #fff !important;
+  cursor: pointer;
+}
+.signup-btn:disabled {
+  cursor: not-allowed;
+}
+.signup-label {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-family: "Noto Sans";
+  font-weight: 500;
+  width: 560px;
+  margin-bottom: 2px;
+  color: var(--grey03, #969696);
+  font-family: "Noto Sans";
+  font-size: 20px;
+  font-style: normal;
+  line-height: normal;
+}
+.signup-label .required {
+  color: #ff5d5d;
+  font-size: 18px;
+  margin-left: 3px;
+}
+.pw-desc {
+  font-size: 16px;
+  color: #969696;
+  font-family: "Noto Sans";
+  margin-left: 16px;
+  margin-bottom: 6px;
+  width: 560px;
+  text-align: left;
+  font-weight: 500;
+  font-style: normal;
+  line-height: normal;
+}
+.pw-error-msg {
+  position: absolute;
+  right: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ff5d5d;
+  font-size: 15px;
+  font-family: "Noto Sans";
+  font-weight: 500;
+  white-space: nowrap;
+  pointer-events: none;
+  background: #fff;
+  padding-left: 10px;
+  z-index: 2;
+}
+.signup-checkbox-wrap {
+  display: flex;
+  align-items: center;
+  margin: 12px 0 0 0;
+  width: 560px;
+  font-family: "Noto Sans";
+  font-size: 15px;
+  color: #555;
+  gap: 8px;
+  justify-content: flex-start;
+}
+.signup-checkbox {
+  width: 18px;
+  height: 18px;
+  accent-color: #78bda6;
+  margin-right: 8px;
+}
+@media (max-width: 1920px) {
+  .wrapper {
+    width: 100vw;
+    min-width: 360px;
+  }
+}
+@media (max-width: 650px) {
+  .signup-section {
+    max-width: 98vw;
+  }
+  .signup-input,
+  .signup-btn,
+  .input-wrapper {
+    width: 95vw !important;
+    min-width: 220px !important;
+  }
+  .signup-title-container {
+    width: 95vw !important;
+  }
+  .pw-desc {
+    width: 95vw !important;
+  }
+}
