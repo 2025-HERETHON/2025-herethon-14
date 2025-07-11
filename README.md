@@ -1,20 +1,38 @@
-<h2>✨ 2025 여기톤 : HER+ETHON 14팀 ✨<br>
-<img src="https://i.ibb.co/Kp7QdrDh/nexit.png" alt="nexit" border="0" width="300">
-</h2>
+<h2>2025 여기톤 : HER+ETHON 14팀</h2>
+(로고 이미지)
+<hr>
 
-### **🚨 다음을 향한 탈출구, N:EXIT 🚨** 
-<p> 소개 </p>
+### 다음을 향한 탈출구, N:EXIT 
+<p> N:EXIT는 데이트폭력 피해자가 관계 속 위험을 인식하고, 증거와 상황을 정리하고, 유사 경험자들과의 정보 공유를 통해 다음으로 나아갈 수 있도록 돕는 증거 기록 – 경험 공유 - 자가진단 기반의 통합 지원 서비스입니다. </p>
 
 
-## Contributors 💬
-|  송나영<br />([@깃허브주소)](https://github.com/이름)) | 이승채 <br />([@깃허브주소)](https://github.com/이름)) | 윤세진 <br />([@깃허브주소)](https://github.com/이름)) | 김나은 <br />([@naeunn)](https://github.com/naeunn)) | 양보윤 <br />([@깃허브주소)](https://github.com/이름)) |
-|:-------:|:-------:|:-------:|:-------:|:-------:|
-| <img width="200px" hegiht="200px" src="https://i.ibb.co/KpmNmdvk/image.jpg" alt="image" border="0"> | <img width="200px" hegiht="200px" src="https://i.ibb.co/KpmNmdvk/image.jpg" alt="image" border="0"> | <img width="200px" hegiht="200px" src="https://i.ibb.co/KpmNmdvk/image.jpg" alt="image" border="0">| <img width="200px" hegiht="200px" src="https://i.ibb.co/KpmNmdvk/image.jpg" alt="image" border="0">| <img width="200px" hegiht="200px" src="https://i.ibb.co/KpmNmdvk/image.jpg" alt="image" border="0">|
-|PM|FE|FE|BE|BE|
-|`구상 및 기획`<br/>`UI/UX 디자인`<br/> | '맡으신 부분'<br/> '적어주세요'<br/> | '맡으신 부분'<br/> '적어주세요'<br/> |'맡으신 부분'<br/> '적어주세요'<br/> | '맡으신 부분'<br/> '적어주세요'<br/>|
-<br>
- 
-## Tech Stack 💬
+## Contributors
+<table border="" cellspacing="0" cellpadding="0" width="100%">
+  <tr width="100%">
+  <td align="center">김멋사</a></td>
+  <td align="center">이멋사</a></td>
+  <td  align="center">정멋사</a></td>
+  </tr>
+  <tr width="100%">
+  <td  align="center"><a href="https://imgbb.com/"><img src="https://i.ibb.co/sWXnzcJ/befbedf87e51f5b02aac8b882ada60fd-sticker.png" alt="befbedf87e51f5b02aac8b882ada60fd-sticker" border="0" width="90px"></a></td>
+  <td  align="center"><a href="https://imgbb.com/"><img src="https://i.ibb.co/MRr1QMW/f67635fddb50d05f2d0f142e63b0ab5c-sticker.png" alt="f67635fddb50d05f2d0f142e63b0ab5c-sticker" border="0" width="90px"></a></td>
+  <td  align="center"><a href="https://imgbb.com/"><img src="https://i.ibb.co/2KDG82L/d006044e5996d0023cd2e18425aa4677-sticker.png" alt="d006044e5996d0023cd2e18425aa4677-sticker" border="0" width="90px"></a></td>
+  </tr>
+  <tr width="100%">
+  <td  align="center">기획·디자인</td>
+  <td  align="center">프론트엔드</td>
+  <td  align="center">백엔드</td>
+     </tr>
+      <tr width="100%">
+          <td  align="center"><p>담당 기능 A</p><p>담당 기능 B</p><p>담당 기능 C</p></td>
+           <td  align="center"><p>담당 기능 A</p><p>담당 기능 B</p><p>담당 기능 C</p></td>
+            <td  align="center"><p>담당 기능 A</p><p>담당 기능 B</p><p>담당 기능 C</p></td>
+     </tr>
+  </table>
+
+
+
+## Tech Stack
 
   <span>프론트엔드: </span> 
   ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
@@ -33,7 +51,7 @@
 <br>
 
 
-## 폴더 구조 💬
+- **폴더 구조**
 
   ```
   📂 all_project
