@@ -50,3 +50,25 @@
 ![SQLite](https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white)
 
 <br>
+
+<h2>폴더 구조💬</h2>
+
+  ```
+  📂 
+  └─ 2025-herethon-14
+   ├─ config
+   │  ├─ __init__.py
+   │  ├─ asgi.py
+   │  ├─ settings.py
+   │  ├─ urls.py
+   │  └─ wsgi.py
+   ├─ nexit
+   │  ├─ exitlog
+   │  ├─ institutions
+   │  ├─ log_in
+   │  ├─ mainpage
+   |  ├─ sign_up
+   │  ├─ profiling
+   │  └─ timelog
+   └─ manage.py
+  ```
