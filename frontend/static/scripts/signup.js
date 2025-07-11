@@ -32,9 +32,26 @@ function checkAll() {
 inputs.forEach((input) => {
   input.addEventListener("input", () => {
     // 테두리
+    // 비밀번호 길이 유효성 검사
+    let lengthErrorMsg = document.querySelector(".pw-length-error");
+    if (pwInput.value && (pwInput.value.length < 8 || pwInput.value.length > 16)) {
+      pwInput.classList.add("error");
+      if (!lengthErrorMsg) {
+        lengthErrorMsg = document.createElement("div");
+        lengthErrorMsg.className = "pw-length-error";
+        lengthErrorMsg.innerText = "비밀번호는 8~16자여야 합니다.";
+        pwInput.parentElement.appendChild(lengthErrorMsg);
+      }
+    } else {
+      pwInput.classList.remove("error");
+      if (lengthErrorMsg) lengthErrorMsg.remove();
+    }
     if (input.value) {
       input.classList.add("active");
-      input.classList.remove("error");
+      // 비밀번호 input이면 길이 검사 결과로 error 유지
+      if (input !== pwInput) {
+        input.classList.remove("error");
+      }
     } else {
       input.classList.remove("active");
       input.classList.remove("error");
@@ -97,7 +114,7 @@ form.addEventListener("submit", async function (e) {
       formData.append("password", password);
       formData.append("password2", password2);
 
-      const response = await fetch("/signup/api/", {
+      const response = await fetch("https://your-api.com/auth/api/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
@@ -123,3 +140,7 @@ form.addEventListener("submit", async function (e) {
 });
 
 window.onload = checkAll;
+// 회원가입 시 기존 로그인 정보 제거
+window.localStorage.removeItem("userEmail");
+window.localStorage.removeItem("userName");
+window.localStorage.removeItem("userNickname");

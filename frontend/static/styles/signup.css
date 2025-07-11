@@ -59,6 +59,15 @@ main {
   width: 100%;
   align-items: center;
 }
+
+.signup-input {
+  background-color: white !important;
+  -webkit-box-shadow: 0 0 0 1000px white inset;
+  box-shadow: 0 0 0 1000px white inset;
+  /* 기존 스타일 유지 */
+}
+
+
 .signup-input-group {
   display: flex;
   flex-direction: column;
@@ -169,19 +178,25 @@ main {
 }
 .pw-error-msg {
   position: absolute;
-  right: 22px;
+  right: 20px; /* input 우측 여백 */
   top: 50%;
   transform: translateY(-50%);
   color: #ff5d5d;
-  font-size: 15px;
+  font-size: 14px;
   font-family: "Noto Sans";
   font-weight: 500;
   white-space: nowrap;
   pointer-events: none;
-  background: #fff;
-  padding-left: 10px;
+  background: white;
   z-index: 2;
+  padding: 0 8px;
 }
+.input-wrapper{
+  display: block;
+}
+
+
+
 .signup-checkbox-wrap {
   display: flex;
   align-items: center;

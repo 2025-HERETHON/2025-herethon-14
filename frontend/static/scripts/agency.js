@@ -1,49 +1,78 @@
 console.log("agency.js loaded ✅");
 
 // 전역 변수로 지도 선언
-let map1, map2;
+let notaryData = [];
+let notaryMarkers = [];
+let policeData = [];
+let policeMarkers = [];
+let notaryMap, policeMap;
 
 // 카카오 맵 로드 후 실행
 window.onload = function() {
   kakao.maps.load(function() {
-    // 첫 번째 지도 (공증사무소)
-    var notaryMapContainer = document.querySelectorAll('.agency-placeholder')[0];
-    var notaryMap = new kakao.maps.Map(notaryMapContainer, {
+    // 공증사무소 지도
+    var notaryMapContainer = document.getElementById('notary-map');
+    notaryMap = new kakao.maps.Map(notaryMapContainer, {
+      center: new kakao.maps.LatLng(37.5665, 126.9780),
+      level: 7
+    });
+    // 경찰서 지도
+    var policeMapContainer = document.getElementById('police-map');
+    policeMap = new kakao.maps.Map(policeMapContainer, {
       center: new kakao.maps.LatLng(37.5665, 126.9780),
       level: 7
     });
 
-    // 두 번째 지도 (지구대/파출소)
-    var policeMapContainer = document.querySelectorAll('.agency-placeholder')[1];
-    var policeMap = new kakao.maps.Map(policeMapContainer, {
-      center: new kakao.maps.LatLng(37.5665, 126.9780),
-      level: 7
-    });
-
-    // 공증사무소 데이터 불러오기 (예시: /static/assets/notary_offices.json)
+    // 공증사무소 데이터
     fetch('/static/assets/notary_offices.json')
       .then(res => res.json())
       .then(data => {
+        notaryData = data.map(office => ({
+          name: office.name,
+          address: office.address || '',
+          lat: office.lat,
+          lng: office.lng
+        }));
+        notaryMarkers = [];
         data.forEach(function(office) {
-          new kakao.maps.Marker({
+          var marker = new kakao.maps.Marker({
             map: notaryMap,
             position: new kakao.maps.LatLng(office.lat, office.lng),
             title: office.name
           });
+          notaryMarkers.push(marker);
+          kakao.maps.event.addListener(marker, "click", function() {
+            var naviUrl = "https://map.kakao.com/link/to/" + encodeURIComponent(office.name) + "," + office.lat + "," + office.lng;
+            window.open(naviUrl, "_blank");
+          });
         });
+        renderNotaryList(notaryData);
       });
 
-    // 지구대/파출소 데이터 불러오기 (예시: /static/assets/police_stations.json)
+    // 경찰서 데이터
     fetch('/static/assets/police_stations.json')
       .then(res => res.json())
       .then(data => {
+        policeData = data.map(station => ({
+          name: station.name,
+          address: station.address || '',
+          lat: station.lat,
+          lng: station.lng
+        }));
+        policeMarkers = [];
         data.forEach(function(station) {
-          new kakao.maps.Marker({
+          var marker = new kakao.maps.Marker({
             map: policeMap,
             position: new kakao.maps.LatLng(station.lat, station.lng),
             title: station.name
           });
+          policeMarkers.push(marker);
+          kakao.maps.event.addListener(marker, "click", function() {
+            var naviUrl = "https://map.kakao.com/link/to/" + encodeURIComponent(station.name) + "," + station.lat + "," + station.lng;
+            window.open(naviUrl, "_blank");
+          });
         });
+        renderPoliceList(policeData);
       });
   });
 };
@@ -98,12 +127,19 @@ function loadLawFirms() {
           position: new kakao.maps.LatLng(lat, lng),
         });
         
+        const naviUrl = "https://map.kakao.com/link/to/" + encodeURIComponent(name) + "," + lat + "," + lng;
         const infowindow = new kakao.maps.InfoWindow({
-          content: `<div style="padding:5px;">${name}</div>`,
+          content: `
+            <div style="padding:5px;">
+              ${name}<br>
+              <a href="${naviUrl}" target="_blank" style="color:blue;text-decoration:underline;">카카오맵 길찾기</a>
+            </div>
+          `,
         });
         
         kakao.maps.event.addListener(marker, "click", () => {
-          infowindow.open(map1, marker);
+          const naviUrl = "https://map.kakao.com/link/to/" + encodeURIComponent(name) + "," + lat + "," + lng;
+          window.open(naviUrl, "_blank");
         });
       });
     })
@@ -150,12 +186,19 @@ function loadPoliceStations() {
               position: coords,
             });
             
+            const naviUrl = "https://map.kakao.com/link/to/" + encodeURIComponent(name) + "," + coords.getLat() + "," + coords.getLng();
             const infowindow = new kakao.maps.InfoWindow({
-              content: `<div style="padding:5px;">${name}</div>`,
+              content: `
+                <div style="padding:5px;">
+                  ${name}<br>
+                  <a href="${naviUrl}" target="_blank" style="color:blue;text-decoration:underline;">카카오맵 길찾기</a>
+                </div>
+              `,
             });
             
             kakao.maps.event.addListener(marker, "click", () => {
-              infowindow.open(map2, marker);
+              const naviUrl = "https://map.kakao.com/link/to/" + encodeURIComponent(name) + "," + coords.getLat() + "," + coords.getLng();
+              window.open(naviUrl, "_blank");
             });
           } else {
             console.warn(`주소 검색 실패: ${address} - ${name}`);
@@ -184,12 +227,19 @@ function loadMockLawFirms() {
       position: new kakao.maps.LatLng(item.위도, item.경도),
     });
     
+    const naviUrl = "https://map.kakao.com/link/to/" + encodeURIComponent(item.법무법인명) + "," + item.위도 + "," + item.경도;
     const infowindow = new kakao.maps.InfoWindow({
-      content: `<div style="padding:5px;">${item.법무법인명}</div>`,
+      content: `
+        <div style="padding:5px;">
+          ${item.법무법인명}<br>
+          <a href="${naviUrl}" target="_blank" style="color:blue;text-decoration:underline;">카카오맵 길찾기</a>
+        </div>
+      `,
     });
     
     kakao.maps.event.addListener(marker, "click", () => {
-      infowindow.open(map1, marker);
+      const naviUrl = "https://map.kakao.com/link/to/" + encodeURIComponent(item.법무법인명) + "," + item.위도 + "," + item.경도;
+      window.open(naviUrl, "_blank");
     });
   });
 }
@@ -207,12 +257,113 @@ function loadMockPoliceStations() {
       position: new kakao.maps.LatLng(item.위도, item.경도),
     });
     
+    const naviUrl = "https://map.kakao.com/link/to/" + encodeURIComponent(item.기관명) + "," + item.위도 + "," + item.경도;
     const infowindow = new kakao.maps.InfoWindow({
-      content: `<div style="padding:5px;">${item.기관명}</div>`,
+      content: `
+        <div style="padding:5px;">
+          ${item.기관명}<br>
+          <a href="${naviUrl}" target="_blank" style="color:blue;text-decoration:underline;">카카오맵 길찾기</a>
+        </div>
+      `,
     });
     
     kakao.maps.event.addListener(marker, "click", () => {
-      infowindow.open(map2, marker);
+      const naviUrl = "https://map.kakao.com/link/to/" + encodeURIComponent(item.기관명) + "," + item.위도 + "," + item.경도;
+      window.open(naviUrl, "_blank");
     });
   });
 }
+
+// 공증사무소 리스트 렌더링
+function renderNotaryList(list) {
+  const listDiv = document.getElementById('notary-list');
+  if (!listDiv) return;
+  if (list.length === 0) {
+    listDiv.innerHTML = '<div style="color:gray;">검색 결과가 없습니다.</div>';
+    return;
+  }
+  listDiv.innerHTML = list.map(item =>
+    `<div class="notary-item" data-lat="${item.lat}" data-lng="${item.lng}" style="padding:4px 0;cursor:pointer;">
+      <b>${item.name}</b> ${item.address ? '('+item.address+')' : ''}
+    </div>`
+  ).join('');
+}
+
+// 경찰서 리스트 렌더링
+function renderPoliceList(list) {
+  const listDiv = document.getElementById('police-list');
+  if (!listDiv) return;
+  if (list.length === 0) {
+    listDiv.innerHTML = '<div style="color:gray;">검색 결과가 없습니다.</div>';
+    return;
+  }
+  listDiv.innerHTML = list.map(item =>
+    `<div class="police-item" data-lat="${item.lat}" data-lng="${item.lng}" style="padding:4px 0;cursor:pointer;">
+      <b>${item.name}</b> ${item.address ? '('+item.address+')' : ''}
+    </div>`
+  ).join('');
+}
+
+// 공증사무소 검색 이벤트
+window.addEventListener('DOMContentLoaded', function() {
+  const notarySearch = document.getElementById('notary-search');
+  if (notarySearch) {
+    notarySearch.addEventListener('input', function() {
+      const keyword = this.value.trim();
+      const filtered = notaryData.filter(item =>
+        item.name.includes(keyword) || item.address.includes(keyword)
+      );
+      renderNotaryList(filtered);
+      // 마커 필터링
+      notaryMarkers.forEach((marker, idx) => {
+        const item = notaryData[idx];
+        const matched = filtered.some(f => f.lat == item.lat && f.lng == item.lng);
+        marker.setMap(matched ? notaryMap : null);
+      });
+    });
+    // 리스트 클릭 시 지도 이동 및 네비 연동
+    const notaryListDiv = document.getElementById('notary-list');
+    notaryListDiv.addEventListener('click', function(e) {
+      const target = e.target.closest('.notary-item');
+      if (!target) return;
+      const lat = parseFloat(target.dataset.lat);
+      const lng = parseFloat(target.dataset.lng);
+      notaryMap.setCenter(new kakao.maps.LatLng(lat, lng));
+      // 네비 연동
+      const name = target.textContent.trim();
+      const naviUrl = "https://map.kakao.com/link/to/" + encodeURIComponent(name) + "," + lat + "," + lng;
+      window.open(naviUrl, "_blank");
+    });
+  }
+
+  // 경찰서 검색 이벤트
+  const policeSearch = document.getElementById('police-search');
+  if (policeSearch) {
+    policeSearch.addEventListener('input', function() {
+      const keyword = this.value.trim();
+      const filtered = policeData.filter(item =>
+        item.name.includes(keyword) || item.address.includes(keyword)
+      );
+      renderPoliceList(filtered);
+      // 마커 필터링
+      policeMarkers.forEach((marker, idx) => {
+        const item = policeData[idx];
+        const matched = filtered.some(f => f.lat == item.lat && f.lng == item.lng);
+        marker.setMap(matched ? policeMap : null);
+      });
+    });
+    // 리스트 클릭 시 지도 이동 및 네비 연동
+    const policeListDiv = document.getElementById('police-list');
+    policeListDiv.addEventListener('click', function(e) {
+      const target = e.target.closest('.police-item');
+      if (!target) return;
+      const lat = parseFloat(target.dataset.lat);
+      const lng = parseFloat(target.dataset.lng);
+      policeMap.setCenter(new kakao.maps.LatLng(lat, lng));
+      // 네비 연동
+      const name = target.textContent.trim();
+      const naviUrl = "https://map.kakao.com/link/to/" + encodeURIComponent(name) + "," + lat + "," + lng;
+      window.open(naviUrl, "_blank");
+    });
+  }
+});

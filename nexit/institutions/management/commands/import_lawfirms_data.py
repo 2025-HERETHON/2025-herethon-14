@@ -59,7 +59,7 @@ class Command(BaseCommand):
         self.stdout.write(self.style.SUCCESS("법무법인 데이터 저장 완료")) # type: ignore
 
         # DB → JSON 파일로 저장
-        all_lawfirms = LawFirm.objects.all()
+        all_lawfirms = LawFirm.objects.all() # type: ignore
         lawfirm_list = [
             {
                 "name": firm.name,
