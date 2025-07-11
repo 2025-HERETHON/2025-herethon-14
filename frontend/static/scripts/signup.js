@@ -97,7 +97,7 @@ form.addEventListener("submit", async function (e) {
       formData.append("password", password);
       formData.append("password2", password2);
 
-      const response = await fetch("https://your-api.com/auth/api/signup", {
+      const response = await fetch("/signup/api/", {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",

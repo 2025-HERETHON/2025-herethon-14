@@ -4,6 +4,8 @@ from django.http import HttpResponse
 from .models import User
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.views import LoginView
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
 
 # Create your views here.
 
@@ -45,3 +47,27 @@ def login_page(request):
 
 def signup_page(request):
     return render(request, 'signup.html')
+
+@csrf_exempt
+def login_api(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        user = authenticate(request, email=email, password=password)
+        if user is not None:
+            auth_login(request, user)
+            # UserProfile에서 nickname 가져오기
+            nickname = None
+            if hasattr(user, 'profile'):
+                nickname = user.profile.nickname
+            return JsonResponse({
+                'success': True,
+                'user': {
+                    'email': user.email,
+                    'name': user.name,
+                    'nickname': nickname
+                }
+            })
+        else:
+            return JsonResponse({'success': False, 'message': '이메일 또는 비밀번호가 올바르지 않습니다.'}, status=401)
+    return JsonResponse({'success': False, 'message': '잘못된 요청입니다.'}, status=405)

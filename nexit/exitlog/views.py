@@ -3,6 +3,7 @@ from .models import Exitlog, Scrap
 from .forms import ExitlogForm
 import os
 from django.core.paginator import Paginator
+from django.contrib.auth.decorators import login_required
 
 
 def get_paginated_exitlogs(request, base_queryset):
@@ -20,6 +21,7 @@ def get_paginated_exitlogs(request, base_queryset):
     return page_obj, sort
 
 
+@login_required
 def index(request):
     exitlogs = Exitlog.objects.all()  # type: ignore
     page_obj, sort = get_paginated_exitlogs(request, exitlogs)
@@ -30,6 +32,7 @@ def index(request):
         'filter_type': 'all',
     })
 
+@login_required
 def create(request):
     if request.method == 'POST':
         form = ExitlogForm(request.POST, request.FILES)
@@ -63,11 +66,13 @@ def get_file_info(file_field):
         }
         
         
+@login_required
 def detail(request, id):
     exitlog = get_object_or_404(Exitlog, id=id)
     file_info = get_file_info(exitlog.file)
     return render(request, 'exitlog/detail.html', {'exitlog':exitlog, **file_info})
 
+@login_required
 def update(request, id):
     exitlog = get_object_or_404(Exitlog, id=id)
     
@@ -102,12 +107,14 @@ def update(request, id):
 
     return render(request, 'exitlog/update.html', context)
 
+@login_required
 def delete(request, id):
     exitlog = get_object_or_404(Exitlog, id=id)
     exitlog.delete()
     return redirect('exitlog:index')
 
 #스크랩 기능
+@login_required
 def scrap(request, exitlog_id): 
     if request.method =="POST":
         exitlog = get_object_or_404(Exitlog, id=exitlog_id)
@@ -119,6 +126,7 @@ def scrap(request, exitlog_id):
             exitlog.scrap.add(user)
         return redirect(request.META.get("HTTP_REFERER", "/"))
 
+@login_required
 def scrap_list(request):
     user = request.user
     scrap_exitlogs = Exitlog.objects.filter(scrap=user)  # type: ignore
@@ -130,11 +138,14 @@ def scrap_list(request):
         'filter_type': 'scrap',
     })
 
+@login_required
 def exitlog_post(request):
     return render(request, 'exitlog_post.html')
 
+@login_required
 def exitlog_record(request):
     return render(request, 'exitlog_record.html')
 
+@login_required
 def exitlog_page(request):
     return render(request, 'exitlog.html')

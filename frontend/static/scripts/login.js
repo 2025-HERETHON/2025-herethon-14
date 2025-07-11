@@ -45,7 +45,7 @@ loginForm.addEventListener("submit", async function (e) {
     formData.append("email", idVal);
     formData.append("password", pwVal);
 
-    const response = await fetch("http://localhost:8000/auth/api/login", {
+    const response = await fetch("/login/api/", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -53,7 +53,14 @@ loginForm.addEventListener("submit", async function (e) {
       body: formData,
     });
 
-    const data = await response.json();
+    let data;
+    try {
+      data = await response.json();
+    } catch {
+      // JSON이 아니면 텍스트로 받기
+      const text = await response.text();
+      data = { success: response.ok, message: text };
+    }
     console.log("로그인 응답:", data);
 
     if (response.ok && data.success) {

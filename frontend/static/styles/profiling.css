@@ -79,7 +79,7 @@
   top: 50%;
   width: 20px;
   height: 20px;
-  background: url("../assets/check.svg") no-repeat center center / contain;
+  background: url("/static/assets/check.svg") no-repeat center center / contain;
   transform: translate(-50%, -50%);
   pointer-events: none;
 }

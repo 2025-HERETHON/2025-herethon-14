@@ -16,18 +16,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from nexit.log_in.views import login_view, signup_view, UserLoginView, login_page, signup_page
+from nexit.log_in.views import login_view, signup_view, UserLoginView, login_page, signup_page, login_api
 from nexit.profiling.views import profiling_survey, submit_profiling, profiling_result, previous_results, load_previous_result, profiling_page, profiling_result_page, profiling_last_result_page
 from nexit.mainpage.views import mainpage, my_notes, organizations, violence_info, escape_stories, profiling_link
 from django.views.generic import RedirectView
 from config import views as fe_views
 from nexit.exitlog.views import exitlog_page, exitlog_post, exitlog_record
+from django.shortcuts import render, redirect
 
 urlpatterns = [
+    path('pages/<str:filename>.html', lambda request, filename: redirect(f'/{filename}.html', permanent=True)),
     path('admin/', admin.site.urls),
     path('login/', UserLoginView.as_view(), name='login'),
     path('accounts/login/', RedirectView.as_view(url='/login/', permanent=False)),
-    path('signup/', signup_view, name='signup'),
+    path('agency.html', lambda request: render(request, 'agency.html'), name='agency_html'),
+    path('signup/', include('nexit.signup.urls')),
     path('profiling/', profiling_survey, name='profiling_survey'),
     path('profiling/submit/', submit_profiling, name='submit_profiling'),
     path('profiling/result/<int:result_id>/', profiling_result, name='profiling_result'),
@@ -48,16 +51,16 @@ urlpatterns = [
     path('violence.html', fe_views.violence, name='violence_html'),
     path('exitlog.html', exitlog_page, name='exitlog_html'),
     path('profiling.html', profiling_page, name='profiling_html'),
-    path('agency.html', fe_views.agency, name='agency_html'),
+    path('agency.html', lambda request: render(request, 'agency.html'), name='agency_html'),
     path('login.html', login_page, name='login_html'),
-    path('signup.html', signup_page, name='signup_html'),
+    path('signup.html', lambda request: __import__('nexit.signup.views').signup.views.signup_page(request)),
     path('exitlog_record.html', exitlog_record, name='exitlog_record_html'),
     path('exitlog_post.html', exitlog_post, name='exitlog_post_html'),
     path('profiling_result.html', profiling_result_page, name='profiling_result_html'),
     path('profiling_last_result.html', profiling_last_result_page, name='profiling_last_result_html'),
-    path('pages/profiling_last_result.html', fe_views.profiling_last_result, name='pages_profiling_last_result_html'),
     path('scrap.html', fe_views.scrap, name='scrap_html'),
     # timelog 앱의 urls.py를 include
     path('', include('nexit.timelog.urls')),
     path('institutions/', include('nexit.institutions.urls')),
+    path('login/api/', login_api, name='login_api'),
 ]

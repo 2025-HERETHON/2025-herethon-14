@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'nexit.mainpage',
     'nexit.timelog',
     'nexit.profiling',
+    'nexit.signup',
 
 
 ]

@@ -284,63 +284,12 @@ body {
   gap: 50px;
   font-size: 14px;
   color: #aaa;
+  cursor: pointer;
 }
 
 .pagination .active {
   color: #1f1f1f;
   font-weight: bold;
-}
-
-.footer {
-  background-color: #1f1f1f;
-  color: #ccc;
-  box-sizing: border-box;
-  height: 296px;
-  width: 100%;
-}
-
-.footer .footer-container {
-  width: 100%;
-  max-width: 1170px;
-  margin: 0 auto;
-  height: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-  box-sizing: border-box;
-}
-
-.footer-left {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.footer-logo {
-  width: 100px;
-  margin-bottom: 8px;
-}
-
-.footer-left p {
-  font-size: 16px;
-  color: #969696;
-  margin: 0;
-  line-height: 1.5;
-}
-
-.footer-right {
-  display: flex;
-  gap: 20px;
-}
-
-.footer-icon,
-.instagram_img,
-.mail_img {
-  width: 20px;
-  height: 20px;
-  object-fit: contain;
-  cursor: pointer;
 }
 
 .nav ul li a.active {
