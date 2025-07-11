@@ -1,0 +1,180 @@
+* {
+  font-family: "Noto Sans", sans-serif;
+}
+
+.definition {
+  width: 100%;
+  display: flex;
+  width: 872px;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.definition p {
+  font-size: 16px;
+  margin-bottom: 40px;
+  margin-top: 10px;
+  align-self: stretch;
+  color: var(--black, #1f1f1f);
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.definition-images {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 30px 0;
+}
+.definition-images img {
+  width: 270px;
+  height: 270px;
+  width: 30%;
+  height: auto;
+  border-radius: 8px;
+}
+.rounded-box {
+  width: 200px;
+  height: 40px;
+  flex-shrink: 0;
+  display: inline-block;
+  border: 1.5px solid var(--black, #1f1f1f);
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 20px 20px 20px 0px;
+  background: var(--white, #fff);
+  color: var(--black, #1f1f1f);
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  padding: 6px 5px 20px 5px;
+  margin-bottom: 30px;
+}
+/* 테이블 스타일 */
+.type {
+  width: 100%;
+  color: var(--black, #1f1f1f);
+  font-family: "Noto Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.violence-table {
+  width: 100%;
+  width: 872px;
+  border-collapse: collapse;
+  margin-top: 32px;
+  border: 1.5px solid var(--grey02, #d4d4d4);
+  align-self: stretch;
+  color: var(--black, #1f1f1f);
+  font-family: "Noto Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.violence-table th {
+  padding: 14px;
+  vertical-align: top;
+  text-align: center;
+  font-weight: 600;
+  background: var(--grey01, #f3f3f3);
+  border: 1.5px solid var(--grey02, #d4d4d4);
+}
+.violence-table td {
+  border: 1px solid #ccc;
+  padding: 14px;
+  vertical-align: top;
+  text-align: left;
+}
+.violence-table td:first-child {
+  text-align: center;
+  vertical-align: middle;
+  width: 227px;
+  font-weight: 500;
+  color: #1f1f1f;
+  white-space: pre-line;
+}
+/* 통념깨기 박스 */
+.myth-box {
+  margin-top: 50px;
+  margin-bottom: 40px;
+}
+.myth-item {
+  border-radius: 12px;
+  padding: 10px;
+}
+.myth-question {
+  width: 570px;
+  height: 40px;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  border-radius: 20px 20px 20px 0px;
+  padding: 0 0 0 20px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  background: var(--mint01, #e8f3ef);
+  color: var(--black, #1f1f1f);
+  font-family: "Noto Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.myth-question .q {
+  flex: 1;
+}
+.myth-question .badge {
+  margin-left: auto;
+  width: 100px;
+  flex-shrink: 0;
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  padding: 11px 10px;
+  line-height: 1;
+  border-radius: 20px;
+  white-space: nowrap;
+  width: 100px;
+  height: 40px;
+  flex-shrink: 0;
+  background: var(--mint03, #78bda6);
+}
+.myth-answer {
+  width: 820px;
+  list-style: disc;
+  padding-left: 20px;
+  color: var(--black, #1f1f1f);
+  font-family: "Noto Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-left: 20px;
+  padding: 10px 0 10px 0;
+}
+/* 법적 안내 문구 */
+.legal-info-box {
+  padding: 20px 30px 20px 30px;
+  margin: 60px 0;
+  width: 850px;
+  height: 116px;
+  flex-shrink: 0;
+  color: var(--black, #1f1f1f);
+  border-radius: 20px;
+  background: var(--grey01, #f3f3f3);
+  font-family: "Noto Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+@media (max-width: 1100px) {
+  .myth-question {
+    width: 100%;
+  }
+}
