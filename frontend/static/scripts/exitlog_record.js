@@ -52,7 +52,7 @@ function renderFilesLinks() {
   uploadedFiles.forEach((file, idx) => {
     const div = document.createElement("div");
     div.className = "record-file-item";
-    div.innerHTML = `<img src="../assets/icon-file.svg" style="width:16px;"> <span>${file.name}</span> <span class="remove-attach" title="삭제">×</span>`;
+    div.innerHTML = `<img src="/static/assets/icon-file.svg" style="width:16px;"> <span>${file.name}</span> <span class="remove-attach" title="삭제">×</span>`;
     div.querySelector(".remove-attach").onclick = () => {
       uploadedFiles.splice(idx, 1);
       renderFilesLinks();
@@ -62,7 +62,7 @@ function renderFilesLinks() {
   uploadedLinks.forEach((link, idx) => {
     const div = document.createElement("div");
     div.className = "record-link-item";
-    div.innerHTML = `<img src="../assets/icon-link.svg" style="width:15px;"> <a href="${link}" target="_blank" style="color:#06c; text-decoration:underline;">${link}</a> <span class="remove-attach" title="삭제">×</span>`;
+    div.innerHTML = `<img src="/static/assets/icon-link.svg" style="width:15px;"> <a href="${link}" target="_blank" style="color:#06c; text-decoration:underline;">${link}</a> <span class="remove-attach" title="삭제">×</span>`;
     div.querySelector(".remove-attach").onclick = () => {
       uploadedLinks.splice(idx, 1);
       renderFilesLinks();

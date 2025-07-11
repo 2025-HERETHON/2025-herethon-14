@@ -89,14 +89,14 @@
               <div class="storage-detail-footer"></div>
               <div class="storage-detail-actions" data-post-id="123">
                 {% if timelog and timelog.id %}
-                <a href="{% url 'timelog:delete' timelog.id %}" class="del_btn">
-                  <img src="{% static 'assets/del.png' %}" class="del_btn" width="20" height="20"/>
-                  삭제
-                </a>
-                <a href="{% url 'timelog:update' timelog.id %}" class="edit_btn">
-                  <img src="{% static 'assets/edit.png' %}" class="edit_btn" width="20" height="20"/>
-                  수정
-                </a>
+                  <a href="{% url 'timelog:delete' timelog.id %}" class="action-btn">
+                    <img src="{% static 'assets/del.png' %}" width="20" height="20"/>
+                    삭제
+                  </a>
+                  <a href="{% url 'timelog:update' timelog.id %}" class="action-btn">
+                    <img src="{% static 'assets/edit.png' %}" width="20" height="20"/>
+                    수정
+                  </a>
                 {% endif %}
               </div>
               <div class="storage-detail-prev-list"></div>

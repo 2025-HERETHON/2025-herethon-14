@@ -3,23 +3,18 @@ document.addEventListener("DOMContentLoaded", function () {
   const submitBtn = document.getElementById("profiling-submit");
   const totalQuestions = form.querySelectorAll("tbody tr").length;
 
-  // 한 줄에 체크박스 1개만 선택 가능
-  form.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
-    checkbox.addEventListener("change", function () {
-      if (this.checked) {
-        form.querySelectorAll(`input[name="${this.name}"]`).forEach((cb) => {
-          if (cb !== this) cb.checked = false;
-        });
-      }
+  // 각 행(질문)에서 radio 하나만 선택 가능
+  form.querySelectorAll('input[type="radio"]').forEach((radio) => {
+    radio.addEventListener("change", function () {
       checkAllSelected();
     });
   });
 
-  // 모든 줄에 체크해야 버튼 active 되도록!
+  // 모든 행에 하나씩 선택해야 버튼 active
   function checkAllSelected() {
     let allChecked = true;
     for (let i = 1; i <= totalQuestions; i++) {
-      if (!form.querySelector(`input[name="q${i}"]:checked`)) {
+      if (!form.querySelector(`input[name=\"q${i}\"]:checked`)) {
         allChecked = false;
         break;
       }
@@ -35,21 +30,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
-    let score = 0;
+    // 각 행에서 선택된 값 수집 (예시)
+    let selected = {};
     for (let i = 1; i <= totalQuestions; i++) {
-      const val = form.querySelector(`input[name="q${i}"]:checked`).value;
-      if (val === "yes") score += 2;
-      else if (val === "normal") score += 1;
+      const checked = form.querySelector(`input[name=\"q${i}\"]:checked`);
+      selected[`q${i}`] = checked ? checked.value : null;
     }
-
-    let resultIndex = 0;
-    if (score <= 4) resultIndex = 0;
-    else if (score <= 8) resultIndex = 1;
-    else if (score <= 12) resultIndex = 2;
-    else if (score <= 16) resultIndex = 3;
-    else resultIndex = 4;
-
-    sessionStorage.setItem("profilingResultIndex", resultIndex);
+    sessionStorage.setItem("profilingSelected", JSON.stringify(selected));
     window.location.href = "../pages/profiling_result.html";
   });
 }); // <-- 여기까지가 DOMContentLoaded

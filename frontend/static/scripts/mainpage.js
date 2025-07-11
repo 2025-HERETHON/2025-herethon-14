@@ -12,7 +12,7 @@ window.addEventListener("DOMContentLoaded", function () {
     profileLinkLi.innerHTML = `
       <a href="timelog.html" class="profile-link">
         <span class="profile-img-wrap">
-          <img src="../assets/profile.svg" alt="프로필" />
+          <img src="/static/assets/profile.svg" alt="프로필" />
           <span class="profile-name">${userNickname || userName}님</span>
         </span>
       </a>

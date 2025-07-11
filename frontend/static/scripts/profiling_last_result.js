@@ -7,6 +7,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const resultNickname =
     sessionStorage.getItem("profilingResultNickname") || "-";
 
+  // username을 window.username에서 받아오도록 추가
+  const username = window.username || '김여기';
+
   // 2. 상단 날짜 & 별칭 표시
   document.querySelector(
     ".last_result_log"
@@ -14,17 +17,18 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelector(".last_result_name").textContent = resultNickname;
 
   // 3. 카드 5개 HTML 준비 (예시 - 실제 카드로 교체!)
+  // 모든 cards 배열 내 이미지 경로를 수정
   const cards = [
     // 0점~4점 구간 (아래에 카드 HTML 넣기)
     `              <div class="profiling-result-card">
                 <div class="result-block result-block-1">
                   <img
-                    src="../assets/result1_illust1.png"
+                    src="/static/assets/result_illust1.png"
                     class="result-illust"
                     alt="일러스트1"
                   />
                   <h2 class="result-main-title">
-                    김여기 님은<br />
+                    ${username} 님은<br />
                     <span class="em">신뢰와 존중이 가득한</span>안정적인 관계에
                     있습니다.
                   </h2>
@@ -67,12 +71,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 <hr class="result-hr" />
                 <div class="result-block result-block-2">
                   <img
-                    src="../assets/result1_illust2.png"
+                    src="/static/assets/result_illust2.png"
                     class="result-illust"
                     alt="일러스트2"
                   />
                   <h2 class="result-main-title">
-                    김여기 님의 연인은<br />
+                    ${username} 님의 연인은<br />
                     <span class="em">따뜻하고 배려심 많은 사람</span>일 가능성이
                     높습니다.
                   </h2>
@@ -119,12 +123,12 @@ document.addEventListener("DOMContentLoaded", function () {
     `  <div class="profiling-result-card">
                 <div class="result-block result-block-1">
                   <img
-                    src="../assets/result2_illust1.png"
+                    src="/static/assets/result2_illust1.png"
                     class="result-illust"
                     alt="일러스트1"
                   />
                   <h2 class="result-main-title">
-                    김여기 님은<br />
+                    ${username} 님은<br />
                     <span class="em">소소한 갈등</span>이 잦은 연애를 하고 있습니다. 
                   </h2>
                   <div class="result-desc">
@@ -160,12 +164,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 <hr class="result-hr" />
                 <div class="result-block result-block-2">
                   <img
-                    src="../assets/result2_illust2.png"
+                    src="/static/assets/result2_illust2.png"
                     class="result-illust"
                     alt="일러스트2"
                   />
                   <h2 class="result-main-title">
-                    김여기 님의 연인은<br />
+                    ${username} 님의 연인은<br />
                     <span class="em">감정 표현에 서툰 사람</span>일 가능성이
                     높습니다.
                   </h2>
@@ -206,12 +210,12 @@ document.addEventListener("DOMContentLoaded", function () {
     `  <div class="profiling-result-card">
                 <div class="result-block result-block-1">
                   <img
-                    src="../assets/result3_illust1.png"
+                    src="/static/assets/result3_illust1.png"
                     class="result-illust"
                     alt="일러스트1"
                   />
                   <h2 class="result-main-title">
-                    김여기 님은<br />
+                    ${username} 님은<br />
                     <span class="em">약간의 불신과 통제 신호</span>를 경험하고
                     있습니다.
                   </h2>
@@ -256,12 +260,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 <hr class="result-hr" />
                 <div class="result-block result-block-2">
                   <img
-                    src="../assets/result3_illust2.png"
+                    src="/static/assets/result3_illust2.png"
                     class="result-illust"
                     alt="일러스트2"
                   />
                   <h2 class="result-main-title">
-                    김여기 님의 연인은<br />
+                    ${username} 님의 연인은<br />
                     <span class="em">쉽게 의심하는 통제 성향의 사람</span>일
                     가능성이 높습니다.
                   </h2>
@@ -308,12 +312,12 @@ document.addEventListener("DOMContentLoaded", function () {
     `              <div class="profiling-result-card">
                 <div class="result-block result-block-1">
                   <img
-                    src="../assets/result_illust.png"
+                    src="/static/assets/result_illust.png"
                     class="result-illust"
                     alt="일러스트1"
                   />
                   <h2 class="result-main-title">
-                    김여기 님은<br />
+                    ${username} 님은<br />
                     <span class="em">정서적 고립</span>의 위험에 처해 있어요.
                   </h2>
                   <div class="result-desc">
@@ -359,12 +363,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 <hr class="result-hr" />
                 <div class="result-block result-block-2">
                   <img
-                    src="../assets/result_illust2.png"
+                    src="/static/assets/result_illust2.png"
                     class="result-illust"
                     alt="일러스트2"
                   />
                   <h2 class="result-main-title">
-                    김여기 님의 연인은<br />
+                    ${username} 님의 연인은<br />
                     <span class="em">감정적으로 통제하는 사람</span>일 가능성이
                     높습니다.
                   </h2>
@@ -414,12 +418,12 @@ document.addEventListener("DOMContentLoaded", function () {
     `  <div class="profiling-result-card">
                 <div class="result-block result-block-1">
                   <img
-                    src="../assets/result5_illust1.png"
+                    src="/static/assets/result5_illust1.png"
                     class="result-illust"
                     alt="일러스트1"
                   />
                   <h2 class="result-main-title">
-                    김여기 님은<br />
+                    ${username} 님은<br />
                     <span class="em">심각한 폭력의 위험</span>에 노출되어 있습니다.
                   </h2>
                   <div class="result-desc">
@@ -455,12 +459,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 <hr class="result-hr" />
                 <div class="result-block result-block-2">
                   <img
-                    src="../assets/result5_illust2.png"
+                    src="/static/assets/result5_illust2.png"
                     class="result-illust"
                     alt="일러스트2"
                   />
                   <h2 class="result-main-title">
-                    김여기 님의 연인은<br />
+                    ${username} 님의 연인은<br />
                     <span class="em">극단적인 폭력성을 지닌 사람</span>일 가능성이
                     높습니다.
                   </h2>

@@ -26,10 +26,10 @@ document.addEventListener("DOMContentLoaded", () => {
       const cardHtml = `
         <div class="escape-card" data-index="${idx}">
           <div class="card-header">
-            <div class="profile-img"><img src="../assets/exitlog_profile.svg" alt="프로필 이미지" /></div>
+            <div class="profile-img"><img src="/static/assets/profile.svg" alt="프로필 이미지" /></div>
             <div class="user-name">${card.username}</div>
             <button class="scrap-icon active">
-              <img src="../assets/scrap.png">
+              <img src="/static/assets/scrap.png">
             </button>
           </div>
           <div class="card-body">
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     renderCards(savedCards);
     document.querySelector(
       ".sort-trigger"
-    ).innerHTML = `${sortType} <span class="arrow"><img src="../assets/Vector.png" alt="down" /></span>`;
+    ).innerHTML = `${sortType} <span class="arrow"><img src="/static/assets/Vector.png" alt="down" /></span>`;
   };
 
   // 정렬 토글 버튼 수동 연결 (HTML에 onclick 안 써도 됨)

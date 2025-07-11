@@ -52,7 +52,19 @@ def load_previous_result(request, prev_id):
 # 템플릿 렌더링용 뷰 추가
 @login_required
 def profiling_page(request):
-    return render(request, 'profiling.html')
+    questions = [
+        "상대방이 나를 존중해주나요?",
+        "의사소통이 원활하게 이루어지나요?",
+        "갈등이 있을 때 폭력적인 언행이 있나요?",
+        "상대방이 내 사생활을 존중하나요?",
+        "상대방이 나의 친구/가족과의 관계를 제한하나요?",
+        "상대방이 나의 결정을 존중하나요?",
+        "상대방이 나에게 경제적 통제를 하나요?",
+        "상대방이 나를 위협하거나 협박한 적이 있나요?",
+        "상대방이 나의 외모나 행동을 비하하나요?",
+        "나는 이 관계에서 심리적으로 안전하다고 느끼나요?"
+    ]
+    return render(request, 'profiling.html', {'questions': questions})
 
 @login_required
 def profiling_result_page(request):

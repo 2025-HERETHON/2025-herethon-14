@@ -1,4 +1,5 @@
 {% load static %}
+{% load custom_filters %}
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -97,22 +98,31 @@
                     </tr>
                   </thead>
                   <tbody>
-                    {% for i in "12345678910"|make_list %}
+                    {% for q in questions %}
                     <tr>
                       <td class="profiling-question-title">
-                        {{ i }}. {{ questions|get_item:i }}
+                        {{ forloop.counter }}. {{ q }}
                       </td>
-                      {% for val in "no,normal,yes"|split:"," %}
                       <td>
-                        <label class="custom-checkbox">
-                          <input type="checkbox" name="q{{ i }}" value="{{ val }}" />
+                        <label class="custom-radio">
+                          <input type="radio" name="q{{ forloop.counter }}" value="no" />
                           <span></span>
                         </label>
                       </td>
-                      {% endfor %}
+                      <td>
+                        <label class="custom-radio">
+                          <input type="radio" name="q{{ forloop.counter }}" value="normal" />
+                          <span></span>
+                        </label>
+                      </td>
+                      <td>
+                        <label class="custom-radio">
+                          <input type="radio" name="q{{ forloop.counter }}" value="yes" />
+                          <span></span>
+                        </label>
+                      </td>
                     </tr>
                     {% endfor %}
-                    <!-- 위의 반복문을 수동으로 작성할 수도 있습니다 -->
                   </tbody>
                 </table>
 

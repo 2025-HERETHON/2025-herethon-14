@@ -289,3 +289,34 @@ body {
   bottom: -26px;
   z-index: 2;
 }
+
+.storage-detail-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 1rem;
+  color: #0070f3;
+  text-decoration: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 4px 10px;
+  border-radius: 6px;
+  transition: background 0.13s;
+}
+
+.action-btn img {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+}
+.action-btn:hover {
+  background: #f1f7f7;
+}

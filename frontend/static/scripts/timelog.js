@@ -122,13 +122,13 @@ function renderTable() {
       <td>${data.length - (start + i)}</td>
       <td>${row.title}${
               row.hasFile
-                ? ' <img class="file-icon" src="/static/assets/img-icon.svg" alt="첨부파일" />'
+                ? ' <img class="file-icon" src="/static/assets/img_icon.svg" alt="첨부파일" />'
                 : ""
             }</td>
       <td>${
         parseInt(row.date.slice(5, 7)) +
         "월 " +
-        paseInt(row.date.slice(8, 10)) +
+        parseInt(row.date.slice(8, 10)) +
         "일"
       }</td>
     </tr>
@@ -183,6 +183,14 @@ function changeMonth(diff) {
   currentPage = 1;
   renderTable();
 }
+function switchTab(tab) {
+  currentTab = tab;
+  document.getElementById("tab-all").classList.toggle("active", tab === "all");
+  document.getElementById("tab-file").classList.toggle("active", tab === "file");
+  currentPage = 1;
+  renderTable();
+}
+window.switchTab = switchTab;
 document.addEventListener("DOMContentLoaded", () => {
   initSample();
   renderTable();

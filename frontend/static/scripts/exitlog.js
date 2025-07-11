@@ -117,9 +117,7 @@ document.addEventListener("click", function (e) {
   cards[index].isScrapped = !cards[index].isScrapped;
 
   const img = button.querySelector("img");
-  img.src = `../assets/${
-    cards[index].isScrapped ? "scrap.png" : "nonscrap.png"
-  }`;
+  img.src = `/static/assets/${cards[index].isScrapped ? "scrap.png" : "nonscrap.png"}`;
 
   const scrappedCards = cards.filter((card) => card.isScrapped);
   localStorage.setItem("scrappedCards", JSON.stringify(scrappedCards));
@@ -133,7 +131,7 @@ function selectSort(option) {
     sortPosts("old");
   }
   document.getElementById("sortPopup").style.display = "none";
-  document.querySelector(".sort-trigger").innerHTML = `${option} <span class="arrow"><img src="../assets/Vector.png" alt="down"/></span>`;
+  document.querySelector(".sort-trigger").innerHTML = `${option} <span class="arrow"><img src="/static/assets/Vector.png" alt="down"/></span>`;
 }
 
 function sortPosts(order) {
@@ -184,10 +182,10 @@ function renderCards(cardsArray) {
     const cardHtml = `
       <div class="escape-card" data-index="${index}">
         <div class="card-header">
-          <div class="profile-img"><img src="../assets/exitlog_profile.svg" alt="프로필 이미지" /></div>
+          <div class="profile-img"><img src="/static/assets/profile.svg" alt="프로필 이미지" /></div>
           <div class="user-name">${card.username}</div>
           <button class="scrap-icon" data-index="${index}">
-            <img src="../assets/${card.isScrapped ? "scrap.png" : "nonscrap.png"}" />
+            <img src="/static/assets/${card.isScrapped ? "scrap.png" : "nonscrap.png"}" />
           </button>
         </div>
         <div class="card-body">

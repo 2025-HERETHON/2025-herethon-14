@@ -11,6 +11,11 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
+    <script>
+      {% if user.is_authenticated %}
+        window.username = '{{ user.username|escapejs }}';
+      {% endif %}
+    </script>
   </head>
   <body>
     <div class="wrapper">
@@ -19,25 +24,32 @@
           class="container header-inner"
           style="width: 100%; max-width: 1170px"
         >
-          <a href="mainpage.html" class="logo"
-            ><img src="{% static 'assets/logo.png' %}" alt="n:EXIT logo"
-          /></a>
+          <a href="/" class="logo">
+            <img src="{% static 'assets/logo.png' %}" alt="n:EXIT logo" />
+          </a>
           <div class="menu-and-login">
             <nav class="nav">
               <ul>
-                <li><a href="timelog.html">내 타임로그</a></li>
-                <li><a href="agency.html">관련 기관</a></li>
-                <li><a href="violence.html">폭력 설명</a></li>
-                <li><a href="exitlog.html">탈출기</a></li>
-                <li><a href="profiling.html" class="active">프로파일링</a></li>
-                <li>
-                  <a href="timelog.html" class="profile-link">
-                    <span class="profile-img-wrap">
-                      <img src="{% static 'assets/profile.svg' %}" alt="프로필" />
-                      <span class="profile-name">김여기님</span>
-                    </span>
-                  </a>
-                </li>
+                <li><a href="/timelog.html">내 타임로그</a></li>
+                <li><a href="/agency.html">관련 기관</a></li>
+                <li><a href="/violence.html">폭력 설명</a></li>
+                <li><a href="/exitlog.html">탈출기</a></li>
+                <li><a href="/profiling.html" class="active">프로파일링</a></li>
+                {% if user.is_authenticated %}
+                  <li style="display: flex; align-items: center;">
+                    <a href="/timelog.html" class="profile-link">
+                      <span class="profile-img-wrap">
+                        <img src="{% static 'assets/profile.svg' %}" alt="프로필" />
+                        <span class="profile-name">{{ user.username }}님</span>
+                      </span>
+                    </a>
+                    <a href="/logout/" class="main-login-btn" style="margin-left:12px;">로그아웃</a>
+                  </li>
+                {% else %}
+                  <li>
+                    <a href="/login.html" class="main-login-btn">로그인</a>
+                  </li>
+                {% endif %}
               </ul>
             </nav>
           </div>
@@ -114,5 +126,35 @@
       </div>
     </div>
     <script src="{% static 'scripts/profiling_last_result.js' %}"></script>
+    <script>
+      // 최근 결과 리스트 동적 생성
+      document.addEventListener('DOMContentLoaded', function() {
+        const ul = document.getElementById('recentResultsUl');
+        if (!ul) return;
+        let results = [];
+        try {
+          results = JSON.parse(localStorage.getItem('profilingResults') || '[]');
+        } catch(e) {}
+        ul.innerHTML = '';
+        if (results.length === 0) {
+          ul.innerHTML = '<li style="color:#888;">저장된 결과가 없습니다.</li>';
+        } else {
+          results.slice(0,5).forEach((r, idx) => {
+            const li = document.createElement('li');
+            li.style.padding = '8px 0';
+            li.style.cursor = 'pointer';
+            li.style.borderBottom = '1px solid #eee';
+            li.innerHTML = `<b>${r.nickname}</b> <span style='color:#888;font-size:0.95em;'>(${r.date})</span>`;
+            li.onclick = function() {
+              sessionStorage.setItem('profilingResultIndex', r.level);
+              sessionStorage.setItem('profilingResultDate', r.date);
+              sessionStorage.setItem('profilingResultNickname', r.nickname);
+              location.reload();
+            };
+            ul.appendChild(li);
+          });
+        }
+      });
+    </script>
   </body>
 </html>

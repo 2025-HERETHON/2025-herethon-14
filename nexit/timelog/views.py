@@ -79,7 +79,7 @@ def update(request, id):
             timelog.file = None
             timelog.original_filename = None 
             timelog.save()
-        return redirect('timelog:update', id=id)
+        return redirect('/timelog.html')
     
     file_info = get_file_info(timelog.file)
     
@@ -91,7 +91,7 @@ def update(request, id):
             if 'file' in request.FILES:
                 timelog.original_filename = request.FILES['file'].name  
             timelog.save()
-            return redirect('timelog:detail', id=id)
+            return redirect('/timelog.html')
     else:
         form = TimelogForm(instance=timelog)
         
