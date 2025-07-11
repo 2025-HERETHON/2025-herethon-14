@@ -24,3 +24,29 @@
 
  
 <h2>Contributors💬</h2>
+
+| 송나영<br/>([@naoeeii](https://github.com/naoeeii)) | 이승채<br/>([@chootcuri](https://github.com/chootcuri)) | 윤세진<br/>([@yellowsejin](https://github.com/yellowsejin)) | 김나은<br/>([@naeunn](https://github.com/naeunn)) | 양보윤<br/>([@yxngbxyxn1003](https://github.com/yxngbxyxn1003)) |
+|:--------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------:|
+| <img src="https://i.ibb.co/Hf2nKKzG/202982981.png" width="200px" height="200px" alt="202982981" border="0"> | <img src="https://i.ibb.co/YFjsWgSP/image.jpg" width="200px" height="200px" alt="image" border="0"> | <img src="https://i.ibb.co/DHPksfn2/134202720.jpg" width="200px" height="200px"  alt="134202720" border="0"> | <img src="https://i.ibb.co/SwLjR00g/image.jpg" width="200px" height="200px" alt="image" border="0"> | <img src="https://i.ibb.co/CstFyMHB/201116314.jpg" width="200px" height="200px" alt="201116314" border="0"> | 
+| PM | FE | FE | BE | BE |
+| `구상 및 기획` <br> `UI/UX 디자인` <br>| `메인 홈` <br> `내 타임로그` <br> `타임로그 / 탈출기 기록`<br> `프로파일링 / 결과`<br> | `로그인, 회원가입`<br>  `관련 기관, 폭력 설명`<br>  `탈출기`<br> |  `내 타임로그`<br>  `관련기관`<br>  `탈출기`<br> |  `로그인, 회원가입`<br>  `메인 홈`<br>  `프로파일링`<br> |
+
+<h2>Tech Stack💬</h2>
+📌 기획/디자인 <br>
+
+![Figma](https://img.shields.io/badge/figma-E0474C?style=for-the-badge&logo=figma&logoColor=white)
+![Github](https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white)
+<br>
+
+📌 프론트엔드 <br>
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white)
+<br>
+
+📌 백엔드 <br>
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white)
+
+<br>
