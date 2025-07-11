@@ -1,6 +1,6 @@
 let currentTab = "all";
 let currentYear = 2025;
-let currentMonth = 6;
+let currentMonth = 7;
 let currentPage = 1;
 const pageSize = 5; //게시글 몇 개까지 보여줄지
 
@@ -122,7 +122,7 @@ function renderTable() {
       <td>${data.length - (start + i)}</td>
       <td>${row.title}${
               row.hasFile
-                ? ' <img class="file-icon" src="file_icon.svg" alt="첨부파일" />'
+                ? ' <img class="file-icon" src="../assets/img_icon.svg" alt="첨부파일" />'
                 : ""
             }</td>
       <td>${

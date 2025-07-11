@@ -284,6 +284,7 @@ body {
   gap: 50px;
   font-size: 14px;
   color: #aaa;
+  cursor: pointer;
 }
 
 .pagination .active {
