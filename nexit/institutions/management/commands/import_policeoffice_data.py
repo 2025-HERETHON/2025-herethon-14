@@ -4,7 +4,7 @@ import requests
 
 def get_lat_lng(address):
     url = "https://dapi.kakao.com/v2/local/search/address.json"
-    headers = {"Authorization": "KakaoAK 094c28f4ef56c1cf0ebdf3cd5c40a041"}  # 카카오 REST API 키
+    headers = {"Authorization": "KakaoAK 0f0297fcb0b962a7c349d4ad904ede32"}  # 카카오 REST API 키
     params = {"query": address}
     
     response = requests.get(url, headers=headers, params=params)

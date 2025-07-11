@@ -21,7 +21,7 @@ def get_paginated_exitlogs(request, base_queryset):
 
 
 def index(request):
-    exitlogs = Exitlog.objects.all()
+    exitlogs = Exitlog.objects.all()  # type: ignore
     page_obj, sort = get_paginated_exitlogs(request, exitlogs)
 
     return render(request, 'exitlog/index.html', {
@@ -121,7 +121,7 @@ def scrap(request, exitlog_id):
 
 def scrap_list(request):
     user = request.user
-    scrap_exitlogs = Exitlog.objects.filter(scrap=user)
+    scrap_exitlogs = Exitlog.objects.filter(scrap=user)  # type: ignore
     page_obj, sort = get_paginated_exitlogs(request, scrap_exitlogs)
 
     return render(request, 'exitlog/index.html', {
@@ -129,3 +129,12 @@ def scrap_list(request):
         'sort': sort,
         'filter_type': 'scrap',
     })
+
+def exitlog_post(request):
+    return render(request, 'exitlog_post.html')
+
+def exitlog_record(request):
+    return render(request, 'exitlog_record.html')
+
+def exitlog_page(request):
+    return render(request, 'exitlog.html')

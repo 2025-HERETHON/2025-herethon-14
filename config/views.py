@@ -25,4 +25,28 @@ def profiling_result(request):
     return render(request, 'profiling_result.html')
 
 def profiling_last_result(request):
-    return render(request, 'profiling_last_result.html') 
+    return render(request, 'profiling_last_result.html')
+
+def violence(request):
+    return render(request, 'violence.html')
+
+def exitlog(request):
+    return render(request, 'exitlog.html')
+
+def agency(request):
+    return render(request, 'agency.html')
+
+def login(request):
+    return render(request, 'login.html')
+
+def signup(request):
+    return render(request, 'signup.html')
+
+def exitlog_record(request):
+    return render(request, 'exitlog_record.html')
+
+def exitlog_post(request):
+    return render(request, 'exitlog_post.html')
+
+def scrap(request):
+    return render(request, 'scrap.html') 

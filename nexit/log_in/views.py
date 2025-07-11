@@ -37,4 +37,11 @@ def signup_view(request):
     return HttpResponse('회원가입 입력 폼', content_type='text/plain; charset=utf-8')  # type: ignore
 
 class UserLoginView(LoginView):
-    template_name = 'log_in/login.html'
+    template_name = 'login.html'
+
+# 템플릿 렌더링용 뷰 추가
+def login_page(request):
+    return render(request, 'login.html')
+
+def signup_page(request):
+    return render(request, 'signup.html')

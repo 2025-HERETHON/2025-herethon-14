@@ -1,0 +1,118 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, initial-scale=1.0" />
+    <title>관련 기관</title>
+    <script
+      type="text/javascript"
+      src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=8a1e4c2346e4555ff1cf535de5cf3232&libraries=services">
+    </script>
+    <link rel="stylesheet" href="{% static 'styles/mainpage.css' %}" />
+    <link rel="stylesheet" href="{% static 'styles/timelog.css' %}" />
+    <link rel="stylesheet" href="{% static 'styles/agency.css' %}" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- 상단 메뉴바 (timelog.html 구조와 동일) -->
+      <header class="header">
+        <div
+          class="container header-inner"
+          style="width: 100%; max-width: 1170px"
+        >
+          <a href="mainpage.html" class="logo">
+            <img src="{% static 'assets/logo.png' %}" alt="n:EXIT logo" />
+          </a>
+          <div class="menu-and-login">
+            <nav class="nav">
+              <ul>
+                <li><a href="timelog.html">내 타임로그</a></li>
+                <li><a href="agency.html" class="active">관련 기관</a></li>
+                <li><a href="violence.html">폭력 설명</a></li>
+                <li><a href="exitlog.html">탈출기</a></li>
+                <li><a href="profiling.html">프로파일링</a></li>
+                <li>
+                  <a href="timelog.html" class="profile-link">
+                    <span class="profile-img-wrap">
+                      <img src="{% static 'assets/profile.svg' %}" alt="프로필" />
+                      <span class="profile-name">김여기님</span>
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </header>
+      <main>
+        <div class="main-bg">
+          <div class="container storage-main-row">
+            <!-- 사이드바 (storage.html 구조와 동일) -->
+            <aside class="storage-aside">
+              <div class="storage-aside-title">관련 기관</div>
+              <ul class="storage-aside-list">
+                <li class="active" style="color: #78bda6">관련 기관</li>
+              </ul>
+            </aside>
+            <!-- 본문 -->
+            <section class="storage-content" style="background: #fff">
+              <div class="agency-content-wrap">
+                <!-- 1. 공증사무소 현황 -->
+                <div class="agency-section-title">
+                  <button class="agency-btn-outline">공증사무소 현황</button>
+                </div>
+                <div class="agency-section-desc">
+                  • 피해자가 신속하게 법률적 보호 조치를 받을 수 있도록<br />
+                  공증사무소의 위치를 제공합니다.<br />
+                  • 필요 시 서류 작성 및 공증 절차를 위해 가까운 기관을 쉽게 찾을 수 있습니다.
+                </div>
+                <div class="agency-placeholder" style="width:485px; height:225px; margin-bottom: 20px;"></div>
+
+                <!-- 2. 전국 지구대 파출소 주소 -->
+                <div class="agency-section-title" style="margin-top: 38px">
+                  <button class="agency-btn-outline">
+                    전국 지구대 파출소 주소
+                  </button>
+                </div>
+                <div class="agency-section-desc">
+                  • 긴급 상황 시 즉각적인 신고 및 보호 조치를 받을 수 있도록,<br />
+                  전국 지구대 및 파출소의 주소를 제공합니다.
+                </div>
+                <div class="agency-placeholder" style="width:485px; height:225px;"></div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </main>
+      <!-- 푸터 (timelog.html 구조와 동일) -->
+      <footer class="footer">
+        <div class="container">
+          <div class="footer-left">
+            <img src="{% static 'assets/footer-logo.svg' %}" alt="n:EXIT logo" />
+            <p>
+              대표전화 1234-5678<br />이용약관ㅣ개인정보처리방침<br />Copyright
+              ⓒ여기톤14팀 All rights reserved.
+            </p>
+          </div>
+          <div class="footer-right">
+            <a href="#"
+              ><img
+                src="{% static 'assets/instagram-icon.svg' %}"
+                alt="Instagram"
+                class="instagram_img"
+            /></a>
+            <a href="#"
+              ><img src="{% static 'assets/email-icon.svg' %}" alt="Mail" class="mail_img"
+            /></a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="{% static 'scripts/agency.js' %}"></script>
+  </body>
+</html>

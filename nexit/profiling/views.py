@@ -48,3 +48,16 @@ def load_previous_result(request, prev_id):
         return HttpResponse(f'이전 결과 불러오기: {prev.profiling_result.summary}', content_type='text/plain; charset=utf-8')  # type: ignore
     except PreviousResult.DoesNotExist:  # type: ignore
         return HttpResponse('이전 결과를 찾을 수 없습니다.', status=404, content_type='text/plain; charset=utf-8')  # type: ignore
+
+# 템플릿 렌더링용 뷰 추가
+@login_required
+def profiling_page(request):
+    return render(request, 'profiling.html')
+
+@login_required
+def profiling_result_page(request):
+    return render(request, 'profiling_result.html')
+
+@login_required
+def profiling_last_result_page(request):
+    return render(request, 'profiling_last_result.html')

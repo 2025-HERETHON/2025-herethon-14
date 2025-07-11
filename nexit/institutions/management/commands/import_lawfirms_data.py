@@ -5,7 +5,7 @@ from nexit.institutions.models import LawFirm
 # 카카오 API를 통한 위도, 경도 변환 함수 (경찰서에서 만든 것 활용)
 def get_lat_lng(address):
     url = "https://dapi.kakao.com/v2/local/search/address.json"
-    headers = {"Authorization": "KakaoAK 094c28f4ef56c1cf0ebdf3cd5c40a041"}  # 키 변경 필요
+    headers = {"Authorization": "KakaoAK 0f0297fcb0b962a7c349d4ad904ede32"}  # 키 변경 필요
     params = {"query": address}
     response = requests.get(url, headers=headers, params=params)
     data = response.json()

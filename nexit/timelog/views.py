@@ -3,6 +3,7 @@ from .models import Timelog
 from .forms import TimelogForm
 import os
 from django.core.paginator import Paginator
+from django.contrib.auth.decorators import login_required
 
 #이전, 다음 페이지 (10개씩) 공통 기능 따로 뺌 
 def get_paginated_timelogs(timelogs, request, per_page=10):
@@ -12,10 +13,11 @@ def get_paginated_timelogs(timelogs, request, per_page=10):
     page_number = request.GET.get('page')
     return paginator.get_page(page_number)
 
+@login_required
 def index(request):
-    timelogs = Timelog.objects.all().order_by('date')
+    timelogs = Timelog.objects.all()  # type: ignore
     page_obj = get_paginated_timelogs(timelogs, request)
-    return render(request, 'timelog/index.html', {'page_obj': page_obj})
+    return render(request, 'timelog.html', {'page_obj': page_obj})
 
 #파일 또는 url이 있는 로그만 필터링
 def evidence(request):
@@ -36,7 +38,7 @@ def create(request):
             return redirect('timelog:index')
     else:
         form = TimelogForm()
-    return render(request, 'timelog/create.html', {'form': form})
+    return render(request, 'timelog_record.html', {'form': form})
 
 #detail, update에서 쓸 파일 확장자 처리 따로 뺌
 def get_file_info(file_field):
@@ -64,7 +66,7 @@ def detail(request, id):
         'timelog': timelog,
         **file_info
     }
-    return render(request, 'timelog/detail.html', context)
+    return render(request, 'timelog_post.html', context)
 
 
 def update(request, id):

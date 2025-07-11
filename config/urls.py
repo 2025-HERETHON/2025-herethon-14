@@ -15,12 +15,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from nexit.log_in.views import login_view, signup_view, UserLoginView
-from nexit.profiling.views import profiling_survey, submit_profiling, profiling_result, previous_results, load_previous_result
+from django.urls import path, include
+from nexit.log_in.views import login_view, signup_view, UserLoginView, login_page, signup_page
+from nexit.profiling.views import profiling_survey, submit_profiling, profiling_result, previous_results, load_previous_result, profiling_page, profiling_result_page, profiling_last_result_page
 from nexit.mainpage.views import mainpage, my_notes, organizations, violence_info, escape_stories, profiling_link
 from django.views.generic import RedirectView
 from config import views as fe_views
+from nexit.exitlog.views import exitlog_page, exitlog_post, exitlog_record
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -38,12 +39,25 @@ urlpatterns = [
     path('violence-info/', violence_info, name='violence_info'),
     path('escape-stories/', escape_stories, name='escape_stories'),
     path('profiling-link/', profiling_link, name='profiling_link'),
-    path('timelog/', fe_views.timelog, name='timelog'),
-    path('timelog/post/', fe_views.timelog_post, name='timelog_post'),
-    path('timelog/record/', fe_views.timelog_record, name='timelog_record'),
     path('profiling-page/', fe_views.profiling, name='profiling_page'),
     path('profiling-result/', fe_views.profiling_result, name='profiling_result_page'),
     path('profiling-last-result/', fe_views.profiling_last_result, name='profiling_last_result_page'),
     path('escape-record/', fe_views.escape_record, name='escape_record'),
     path('escape-post/', fe_views.escape_post, name='escape_post'),
+    path('mainpage.html', mainpage, name='mainpage_html'),
+    path('violence.html', fe_views.violence, name='violence_html'),
+    path('exitlog.html', exitlog_page, name='exitlog_html'),
+    path('profiling.html', profiling_page, name='profiling_html'),
+    path('agency.html', fe_views.agency, name='agency_html'),
+    path('login.html', login_page, name='login_html'),
+    path('signup.html', signup_page, name='signup_html'),
+    path('exitlog_record.html', exitlog_record, name='exitlog_record_html'),
+    path('exitlog_post.html', exitlog_post, name='exitlog_post_html'),
+    path('profiling_result.html', profiling_result_page, name='profiling_result_html'),
+    path('profiling_last_result.html', profiling_last_result_page, name='profiling_last_result_html'),
+    path('pages/profiling_last_result.html', fe_views.profiling_last_result, name='pages_profiling_last_result_html'),
+    path('scrap.html', fe_views.scrap, name='scrap_html'),
+    # timelog 앱의 urls.py를 include
+    path('', include('nexit.timelog.urls')),
+    path('institutions/', include('nexit.institutions.urls')),
 ]
