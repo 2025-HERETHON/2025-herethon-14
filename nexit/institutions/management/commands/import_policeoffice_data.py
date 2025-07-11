@@ -1,3 +1,6 @@
+import json
+import os
+from django.conf import settings
 from django.core.management.base import BaseCommand
 from nexit.institutions.models import PoliceOffice
 import requests
@@ -69,3 +72,19 @@ class Command(BaseCommand):
                 )
 
         self.stdout.write(self.style.SUCCESS("경찰서 데이터 저장 완료"))  # type: ignore
+
+        # DB → JSON 파일로 저장
+        all_police = PoliceOffice.objects.all()
+        police_list = [
+            {
+                "name": office.name,
+                "lat": office.latitude,
+                "lng": office.longitude,
+                "address": office.address
+            }
+            for office in all_police if office.latitude and office.longitude
+        ]
+        json_path = os.path.join(settings.BASE_DIR, "frontend", "static", "assets", "police_stations.json")
+        with open(json_path, "w", encoding="utf-8") as f:
+            json.dump(police_list, f, ensure_ascii=False, indent=2)
+        self.stdout.write(self.style.SUCCESS("경찰서 JSON 파일 저장 완료"))  # type: ignore

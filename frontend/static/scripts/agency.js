@@ -5,10 +5,46 @@ let map1, map2;
 
 // 카카오 맵 로드 후 실행
 window.onload = function() {
-  kakao.maps.load(function () {
-    initializeMaps();
-    loadLawFirms();
-    loadPoliceStations();
+  kakao.maps.load(function() {
+    // 첫 번째 지도 (공증사무소)
+    var notaryMapContainer = document.querySelectorAll('.agency-placeholder')[0];
+    var notaryMap = new kakao.maps.Map(notaryMapContainer, {
+      center: new kakao.maps.LatLng(37.5665, 126.9780),
+      level: 7
+    });
+
+    // 두 번째 지도 (지구대/파출소)
+    var policeMapContainer = document.querySelectorAll('.agency-placeholder')[1];
+    var policeMap = new kakao.maps.Map(policeMapContainer, {
+      center: new kakao.maps.LatLng(37.5665, 126.9780),
+      level: 7
+    });
+
+    // 공증사무소 데이터 불러오기 (예시: /static/assets/notary_offices.json)
+    fetch('/static/assets/notary_offices.json')
+      .then(res => res.json())
+      .then(data => {
+        data.forEach(function(office) {
+          new kakao.maps.Marker({
+            map: notaryMap,
+            position: new kakao.maps.LatLng(office.lat, office.lng),
+            title: office.name
+          });
+        });
+      });
+
+    // 지구대/파출소 데이터 불러오기 (예시: /static/assets/police_stations.json)
+    fetch('/static/assets/police_stations.json')
+      .then(res => res.json())
+      .then(data => {
+        data.forEach(function(station) {
+          new kakao.maps.Marker({
+            map: policeMap,
+            position: new kakao.maps.LatLng(station.lat, station.lng),
+            title: station.name
+          });
+        });
+      });
   });
 };
 

@@ -1,4 +1,7 @@
 import requests
+import json
+import os
+from django.conf import settings
 from django.core.management.base import BaseCommand
 from nexit.institutions.models import LawFirm   
 
@@ -54,3 +57,19 @@ class Command(BaseCommand):
                 )
 
         self.stdout.write(self.style.SUCCESS("법무법인 데이터 저장 완료")) # type: ignore
+
+        # DB → JSON 파일로 저장
+        all_lawfirms = LawFirm.objects.all()
+        lawfirm_list = [
+            {
+                "name": firm.name,
+                "lat": firm.latitude,
+                "lng": firm.longitude,
+                "address": firm.address
+            }
+            for firm in all_lawfirms if firm.latitude and firm.longitude
+        ]
+        json_path = os.path.join(settings.BASE_DIR, "frontend", "static", "assets", "notary_offices.json")
+        with open(json_path, "w", encoding="utf-8") as f:
+            json.dump(lawfirm_list, f, ensure_ascii=False, indent=2)
+        self.stdout.write(self.style.SUCCESS("공증사무소 JSON 파일 저장 완료"))  # type: ignore
