@@ -32,7 +32,12 @@
                 <li><a href="profiling.html">프로파일링</a></li>
                 {% if user.is_authenticated %}
                   <li style="display: flex; align-items: center;">
-                    <span class="profile-name">{{ user.username }}님</span>
+                    <a href="timelog.html" class="profile-link">
+                      <span class="profile-img-wrap">
+                        <img src="{% static 'assets/profile.svg' %}" alt="프로필" />
+                        <span class="profile-name">{{ user.username }}님</span>
+                      </span>
+                    </a>
                     <a href="/logout/" class="main-login-btn" style="margin-left:12px;">로그아웃</a>
                   </li>
                 {% else %}

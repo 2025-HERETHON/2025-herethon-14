@@ -17,7 +17,6 @@ window.addEventListener("DOMContentLoaded", function () {
         </span>
       </a>
     `;
-
     // 로그아웃 버튼 동작
     document.getElementById("logoutBtn").onclick = function () {
       localStorage.removeItem("userName");

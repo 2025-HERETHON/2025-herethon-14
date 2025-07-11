@@ -32,14 +32,21 @@
                 <li><a href="violence.html">폭력 설명</a></li>
                 <li><a href="exitlog.html">탈출기</a></li>
                 <li><a href="profiling.html">프로파일링</a></li>
-                <li>
-                  <a href="timelog.html" class="profile-link">
-                    <span class="profile-img-wrap">
-                      <img src="{% static 'assets/profile.svg' %}" alt="프로필" />
-                      <span class="profile-name">{{ user.username }}님</span>
-                    </span>
-                  </a>
-                </li>
+                {% if user.is_authenticated %}
+                  <li style="display: flex; align-items: center;">
+                    <a href="timelog.html" class="profile-link">
+                      <span class="profile-img-wrap">
+                        <img src="{% static 'assets/profile.svg' %}" alt="프로필" />
+                        <span class="profile-name">{{ user.username }}님</span>
+                      </span>
+                    </a>
+                    <a href="/logout/" class="main-login-btn" style="margin-left:12px;">로그아웃</a>
+                  </li>
+                {% else %}
+                  <li>
+                    <a href="login.html" class="main-login-btn">로그인</a>
+                  </li>
+                {% endif %}
               </ul>
             </nav>
           </div>

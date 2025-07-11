@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login as auth_login
+from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from django.http import HttpResponse
 from .models import User
 from django.contrib.auth.hashers import make_password
@@ -71,3 +71,7 @@ def login_api(request):
         else:
             return JsonResponse({'success': False, 'message': '이메일 또는 비밀번호가 올바르지 않습니다.'}, status=401)
     return JsonResponse({'success': False, 'message': '잘못된 요청입니다.'}, status=405)
+
+def logout_view(request):
+    auth_logout(request)
+    return redirect('/')

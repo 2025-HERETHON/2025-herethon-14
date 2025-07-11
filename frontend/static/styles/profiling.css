@@ -256,6 +256,11 @@
   padding-left: 8px;
   margin-top: 20px;
   margin-bottom: 20px;
+  /* 아래 두 줄 추가 */
+  max-height: 260px; /* 보여줄 최대 높이. 원하는 만큼 조정! */
+  overflow-y: auto;
+  max-width: 90vw; /* 추가 */
+  overflow-x: hidden;
 }
 
 .modal-item {

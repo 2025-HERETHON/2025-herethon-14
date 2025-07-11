@@ -9,6 +9,34 @@
     {% block head %}{% endblock %}
   </head>
   <body>
+    <header class="header">
+      <div class="container header-inner" style="width: 100%; max-width: 1170px">
+        <a href="/" class="logo">
+          <img src="{% static 'assets/logo.png' %}" alt="n:EXIT logo" />
+        </a>
+        <div class="menu-and-login">
+          <nav class="nav">
+            <ul>
+              <li><a href="/timelog.html">내 타임로그</a></li>
+              <li><a href="/agency.html">관련 기관</a></li>
+              <li><a href="/violence.html">폭력 설명</a></li>
+              <li><a href="/exitlog.html">탈출기</a></li>
+              <li><a href="/profiling.html">프로파일링</a></li>
+              {% if user.is_authenticated %}
+                <li style="display: flex; align-items: center;">
+                  <span class="profile-name">{{ user.username }}님</span>
+                  <a href="/logout/" class="main-login-btn" style="margin-left:12px;">로그아웃</a>
+                </li>
+              {% else %}
+                <li>
+                  <a href="/login.html" class="main-login-btn">로그인</a>
+                </li>
+              {% endif %}
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
     {% block content %}{% endblock %}
   </body>
 </html> 

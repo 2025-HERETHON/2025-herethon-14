@@ -84,4 +84,12 @@ document.addEventListener("DOMContentLoaded", function () {
     `;
   }
   document.querySelector(".storage-detail-prev-list").innerHTML = prevNextHTML;
+
+  // '전체글 보기' 버튼 클릭 시 /timelog.html로 이동
+  document.querySelectorAll('.view_all_btn a').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      window.location.href = '/timelog.html';
+    });
+  });
 });

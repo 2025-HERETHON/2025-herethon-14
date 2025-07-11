@@ -20,7 +20,7 @@
           class="container header-inner"
           style="width: 100%; max-width: 1170px"
         >
-          <a href="mainpage.html" class="logo">
+          <a href="/" class="logo">
             <img src="{% static 'assets/logo.png' %}" alt="n:EXIT logo" />
           </a>
           <div class="menu-and-login">
@@ -31,14 +31,21 @@
                 <li><a href="violence.html">폭력 설명</a></li>
                 <li><a href="exitlog.html">탈출기</a></li>
                 <li><a href="profiling.html">프로파일링</a></li>
-                <li>
-                  <a href="timelog.html" class="profile-link">
-                    <span class="profile-img-wrap">
-                      <img src="{% static 'assets/profile.svg' %}" alt="프로필" />
-                      <span class="profile-name">{{ user.username }}님</span>
-                    </span>
-                  </a>
-                </li>
+                {% if user.is_authenticated %}
+                  <li style="display: flex; align-items: center;">
+                    <a href="timelog.html" class="profile-link">
+                      <span class="profile-img-wrap">
+                        <img src="{% static 'assets/profile.svg' %}" alt="프로필" />
+                        <span class="profile-name">{{ user.username }}님</span>
+                      </span>
+                    </a>
+                    <a href="/logout/" class="main-login-btn" style="margin-left:12px;">로그아웃</a>
+                  </li>
+                {% else %}
+                  <li>
+                    <a href="login.html" class="main-login-btn">로그인</a>
+                  </li>
+                {% endif %}
               </ul>
             </nav>
           </div>
@@ -57,26 +64,40 @@
             </aside>
             <section class="storage-content" style="padding: 0 40px">
               <div class="view_all_btn" style="margin-top: 30px">
-                <a href="timelog.html"><img src="{% static 'assets/cal-left.svg' %}" /></a>
-                <a href="timelog.html"> 전체글 보기</a>
+                <a href="/timelog.html"><img src="{% static 'assets/cal-left.svg' %}" /></a>
+                <a href="/timelog.html"> 전체글 보기</a>
               </div>
-              <h2 class="storage-detail-title"></h2>
-              <div class="storage-detail-date"></div>
-              <div class="storage-detail-body"></div>
+              <h2 class="storage-detail-title">{{ timelog.title }}</h2>
+              <div class="storage-detail-date">{{ timelog.date }}</div>
+              <div class="storage-detail-body">{{ timelog.content }}</div>
               <div class="storage-detail-img-row">
-                <img class="storage-detail-img" />
+                {% if file_url %}
+                    {% if is_image %}
+                        <img src="{{ file_url }}" class="storage-detail-img-row" width="400" alt="image">
+                    {% else %}
+                        <a href="{{ file_url }}">{{ timelog.original_filename }}</a>
+                    {% endif %}
+                {% endif %} 
+
+                {% if timelog.url %}
+                <p>관련 링크: <a href="{{ timelog.url }}">{{ timelog.url }}</a></p>
+                {% endif %}
+
+
               </div>
+              
               <div class="storage-detail-footer"></div>
               <div class="storage-detail-actions" data-post-id="123">
                 {% if timelog and timelog.id %}
-                <button class="del_btn">
+                <a href="{% url 'timelog:delete' timelog.id %}" class="del_btn">
                   <img src="{% static 'assets/del.png' %}" class="del_btn" width="20" height="20"/>
-                  <a href="{% url 'timelog:delete' timelog.id %}">삭제</a>
-                </button>
-                {% endif %}
-                <button class="edit_btn">
+                  삭제
+                </a>
+                <a href="{% url 'timelog:update' timelog.id %}" class="edit_btn">
                   <img src="{% static 'assets/edit.png' %}" class="edit_btn" width="20" height="20"/>
-                </button>
+                  수정
+                </a>
+                {% endif %}
               </div>
               <div class="storage-detail-prev-list"></div>
             </section>
@@ -107,7 +128,7 @@
         </div>
       </footer>
     </div>
-    <script src="{% static 'scripts/post.js' %}"></script>
+<!--<script src="{% static 'scripts/post.js' %}"></script>-->
   </body>
 </html>
 

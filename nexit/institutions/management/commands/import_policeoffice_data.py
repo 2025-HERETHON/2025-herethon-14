@@ -74,7 +74,7 @@ class Command(BaseCommand):
         self.stdout.write(self.style.SUCCESS("경찰서 데이터 저장 완료"))  # type: ignore
 
         # DB → JSON 파일로 저장
-        all_police = PoliceOffice.objects.all()
+        all_police = PoliceOffice.objects.all() # type: ignore
         police_list = [
             {
                 "name": office.name,

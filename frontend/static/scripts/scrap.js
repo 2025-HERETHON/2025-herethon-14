@@ -1,21 +1,15 @@
-// scrap.js
 document.addEventListener("DOMContentLoaded", () => {
-  // localStorage에서 스크랩 카드만 가져오기
   let savedCards = JSON.parse(localStorage.getItem("scrappedCards")) || [];
   let currentSort = "최신순";
 
-  // 최신순/오래된순 정렬 함수 (카드 데이터에 date가 있다고 가정)
   function sortCards(cards, sortType) {
     return cards.slice().sort((a, b) => {
-      if (sortType === "오래된 순") {
-        return new Date(a.date) - new Date(b.date);
-      } else {
-        return new Date(b.date) - new Date(a.date);
-      }
+      const d1 = new Date(a.date.replace(/\./g, "-"));
+      const d2 = new Date(b.date.replace(/\./g, "-"));
+      return sortType === "오래된 순" ? d1 - d2 : d2 - d1;
     });
   }
 
-  // 카드 렌더링
   function renderCards(cards) {
     const container = document.getElementById("cardGrid");
     container.innerHTML = "";
@@ -32,10 +26,10 @@ document.addEventListener("DOMContentLoaded", () => {
       const cardHtml = `
         <div class="escape-card" data-index="${idx}">
           <div class="card-header">
-            <div class="profile-img"><img src="../assets/profile.png" alt="프로필 이미지" /></div>
+            <div class="profile-img"><img src="../assets/exitlog_profile.svg" alt="프로필 이미지" /></div>
             <div class="user-name">${card.username}</div>
             <button class="scrap-icon active">
-              <img src="../assets/scrab.png">
+              <img src="../assets/scrap.png">
             </button>
           </div>
           <div class="card-body">
@@ -49,30 +43,82 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 정렬 팝업 핸들링
-  window.toggleSort = function () {
+  // 정렬 토글 함수
+  window.toggleSort = () => {
     document.getElementById("sortPopup").classList.toggle("show");
   };
 
-  window.selectSort = function (sortType) {
+  window.selectSort = (sortType) => {
     currentSort = sortType;
     document.getElementById("sortPopup").classList.remove("show");
     renderCards(savedCards);
     document.querySelector(
       ".sort-trigger"
-    ).innerHTML = `${sortType} <span class="arrow"><img src="../assets/Vector.png" alt="down"
-                    /></span>`;
+    ).innerHTML = `${sortType} <span class="arrow"><img src="../assets/Vector.png" alt="down" /></span>`;
   };
 
-  // 사이드바 메뉴 이동
-  document.getElementById("allBtn").addEventListener("click", () => {
-    window.location.href = "exit.html";
-  });
-  document.getElementById("scrapBtn").addEventListener("click", (e) => {
-    e.preventDefault();
-    // 현재 페이지가 scrap이므로 동작 없음
+  // 정렬 토글 버튼 수동 연결 (HTML에 onclick 안 써도 됨)
+  document.querySelector(".sort-trigger")?.addEventListener("click", toggleSort);
+  document.querySelectorAll("#sortPopup li").forEach((li) => {
+    li.addEventListener("click", () => {
+      selectSort(li.textContent.trim());
+    });
   });
 
-  // 최초 렌더링
+  // 페이지 이동 버튼
+  document.getElementById("allBtn")?.addEventListener("click", () => {
+    window.location.href = "exitlog.html";
+  });
+
+  document.getElementById("scrapBtn")?.addEventListener("click", (e) => {
+    e.preventDefault(); // 현재 페이지
+  });
+
+  // 렌더링 시작
   renderCards(savedCards);
+});
+
+
+document.addEventListener("click", function (e) {
+  const button = e.target.closest(".scrap-icon");
+  if (!button) return;
+
+  // 현재 카드 요소
+  const cardElement = button.closest(".escape-card");
+
+  const title = cardElement.querySelector(".card-title").textContent;
+  const username = cardElement.querySelector(".user-name").textContent;
+  const date = cardElement.querySelector(".card-date").textContent;
+  const content = cardElement.querySelector(".card-content").textContent;
+
+  // 저장된 카드 가져오기
+  let savedCards = JSON.parse(localStorage.getItem("scrappedCards")) || [];
+
+  const exists = savedCards.find(
+    (card) =>
+      card.title === title &&
+      card.username === username &&
+      card.date === date
+  );
+
+  if (exists) {
+    // 1. localStorage에서 제거
+    savedCards = savedCards.filter(
+      (card) =>
+        !(
+          card.title === title &&
+          card.username === username &&
+          card.date === date
+        )
+    );
+
+    // 2. 저장 반영
+    localStorage.setItem("scrappedCards", JSON.stringify(savedCards));
+
+    // ✅ 3. 카드 DOM 요소를 직접 삭제
+    cardElement.remove();
+
+    // (선택) 아이콘 회색 처리
+    // button.querySelector("img").src = "../assets/nonscrap.png";
+  }
 });

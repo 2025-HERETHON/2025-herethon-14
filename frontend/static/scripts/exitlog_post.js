@@ -1,84 +1,47 @@
-const post = {
-  title: "여러분의 잘못이 아니에요",
-  date: "2025.06.30",
-  body: [
-    `처음엔 그냥 제가 예민한 줄 알았어요 ㅠㅠ`,
-    `하루 종일 연락 안 받았다고 혼나는 것도,
-친구랑 만났다고 화내는 것도,
-다 “나를 너무 사랑해서” 그런 줄 알았거든요.`,
-  ],
+document.addEventListener("DOMContentLoaded", () => {
+  const selectedCard = JSON.parse(localStorage.getItem("selectedCard"));
+  const cardsArray = JSON.parse(localStorage.getItem("cardsArray"));
+  const selectedIndex = parseInt(localStorage.getItem("selectedCardIndex"));
 
-  image: "",
-  footer: [],
-};
+  if (!selectedCard || !cardsArray || isNaN(selectedIndex)) {
+    document.querySelector(".post-title").textContent = "불러올 데이터가 없습니다.";
+    return;
+  }
 
-const prevPosts = [
-  {
-    title: "헤어지고 광명찾자",
-    date: "2025.06.30",
-    thumb: "",
-  },
-];
-const nextPosts = [
-  {
-    title: "안전이별 안전탈출하세요 ㅠㅠ",
-    date: "2024.06.30",
-    thumb: "",
-  },
-];
+  // 제목, 날짜 출력
+  document.querySelector(".post-title").textContent = selectedCard.title;
+  document.querySelector(".post-date").textContent = selectedCard.date;
 
-document.addEventListener("DOMContentLoaded", function () {
-  // 제목
-  document.querySelector(".storage-detail-title").textContent = post.title;
-  // 날짜
-  document.querySelector(".storage-detail-date").textContent = post.date;
-  // 본문
-  document.querySelector(".storage-detail-body").innerHTML = post.body
-    .map((p) => `<p>${p}</p>`)
+  // 본문 내용 줄바꿈 처리해서 출력
+  const bodyHTML = selectedCard.content
+    .split("\n")
+    .map((line) => `<p>${line.trim()}</p>`)
     .join("");
-  // 이미지
-  document.querySelector(".storage-detail-img").src = post.image;
-  document.querySelector(".storage-detail-footer").innerHTML = post.footer
-    .map((f) => `<p>${f}</p>`)
-    .join("");
+  document.querySelector("#cardContent").innerHTML = bodyHTML;
 
-  // 이전글/다음글
+  // 이전글/다음글 계산
   let prevNextHTML = "";
-  if (prevPosts.length) {
+
+  if (selectedIndex > 0) {
+    const prevCard = cardsArray[selectedIndex - 1];
     prevNextHTML += `
-      <div class="storage-detail-prev-item">
-        <div>
-          <div class="storage-detail-prev-label">이전글</div>
-          <div class="storage-detail-prev-item-title">${
-            prevPosts[0].title
-          }</div>
-          <div class="storage-detail-prev-item-date">${prevPosts[0].date}</div>
-        </div>
-        ${
-          prevPosts[0].thumb
-            ? `<img src="${prevPosts[0].thumb}" class="storage-detail-prev-thumb" />`
-            : ""
-        }
+      <div class="post-prev-item">
+        <div class="post-prev-label">이전글</div>
+        <div class="post-prev-title">${prevCard.title}</div>
+        <div class="post-prev-date">${prevCard.date}</div>
       </div>
     `;
   }
-  if (nextPosts.length) {
+  if (selectedIndex < cardsArray.length - 1) {
+    const nextCard = cardsArray[selectedIndex + 1];
     prevNextHTML += `
-      <div class="storage-detail-prev-item">
-        <div>
-          <div class="storage-detail-prev-label">다음글</div>
-          <div class="storage-detail-prev-item-title">${
-            nextPosts[0].title
-          }</div>
-          <div class="storage-detail-prev-item-date">${nextPosts[0].date}</div>
-        </div>
-        ${
-          nextPosts[0].thumb
-            ? `<img src="${nextPosts[0].thumb}" class="storage-detail-prev-thumb" />`
-            : ""
-        }
+      <div class="post-prev-item">
+        <div class="post-prev-label">다음글</div>
+        <div class="post-prev-title">${nextCard.title}</div>
+        <div class="post-prev-date">${nextCard.date}</div>
       </div>
     `;
   }
-  document.querySelector(".storage-detail-prev-list").innerHTML = prevNextHTML;
+
+  document.querySelector(".post-prev-next").innerHTML = prevNextHTML;
 });

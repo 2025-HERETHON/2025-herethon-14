@@ -20,38 +20,47 @@
           class="container header-inner"
           style="width: 100%; max-width: 1170px"
         >
-          <a href="mainpage.html" class="logo"
+          <a href="/" class="logo"
             ><img src="{% static 'assets/logo.png' %}" alt="n:EXIT logo"
           /></a>
           <div class="menu-and-login">
             <nav class="nav">
               <ul>
-                <li><a href="timelog.html" class="active">내 타임로그</a></li>
-                <li><a href="agency.html">관련 기관</a></li>
-                <li><a href="violence.html">폭력 설명</a></li>
-                <li><a href="exitlog.html">탈출기</a></li>
-                <li><a href="profiling.html">프로파일링</a></li>
-                <li>
-                  <a href="timelog.html" class="profile-link">
-                    <span class="profile-img-wrap">
-                      <img src="{% static 'assets/profile.svg' %}" alt="프로필" />
-                      <span class="profile-name">{{ user.username }}님</span>
-                    </span>
-                  </a>
-                </li>
+                <li><a href="/timelog.html" class="active">내 타임로그</a></li>
+                <li><a href="/agency.html">관련 기관</a></li>
+                <li><a href="/violence.html">폭력 설명</a></li>
+                <li><a href="/exitlog.html">탈출기</a></li>
+                <li><a href="/profiling.html">프로파일링</a></li>
+                {% if user.is_authenticated %}
+                  <li style="display: flex; align-items: center;">
+                    <a href="timelog.html" class="profile-link">
+                      <span class="profile-img-wrap">
+                        <img src="{% static 'assets/profile.svg' %}" alt="프로필" />
+                        <span class="profile-name">{{ user.username }}님</span>
+                      </span>
+                    </a>
+                    <a href="/logout/" class="main-login-btn" style="margin-left:12px;">로그아웃</a>
+                  </li>
+                {% else %}
+                  <li>
+                    <a href="login.html" class="main-login-btn">로그인</a>
+                  </li>
+                {% endif %}
               </ul>
             </nav>
           </div>
         </div>
       </header>
+
+
       <main>
         <div class="main-bg">
           <div class="container storage-main-row">
             <aside class="storage-aside">
               <div class="storage-aside-title">내 타임로그</div>
               <ul class="storage-aside-list">
-                <li id="tab-all" class="active">전체보기</li>
-                <li id="tab-file">증거모음</li>
+                <li id="tab-all" class="active"><a href="timelog.html">전체보기</a></li>
+                <li id="tab-file"><a href="evidence/">증거모음</a></li>
               </ul>
             </aside>
             <section class="storage-content">
@@ -85,19 +94,51 @@
                       <th>날짜</th>
                     </tr>
                   </thead>
-                  <tbody></tbody>
+                  <tbody>
+                    {% for num, timelog in page_obj %}
+                    <tr>
+                        <td>{{ num }}</td>
+                        <td>
+                            <a href="{% url 'timelog:timelog_post_html' timelog.id %}">{{ timelog.title }}</a>
+                            <!--파일이 있으면 아이콘 표시-->
+                            {% if timelog.file or timelog.url %}
+                                📎
+                            {% endif %}
+                        </td>
+
+                        <td>{{ timelog.date|date:"n월 j일" }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="3">작성된 로그 없음</td>
+                    </tr>
+                    {% endfor %}
+
+                  </tbody>
                 </table>
               </div>
               <div class="storage-btn-row">
-                <a href="timelog_record.html">
-                  <button class="storage-record-btn">
-                    <img src="{% static 'assets/Group 136.svg' %}" alt="기록" />
-                    기록하기
-                  </button>
+                <a href="timelog_record.html" class="storage-record-btn">
+                  <img src="{% static 'assets/Group 136.svg' %}" alt="기록" />
+                  기록하기
                 </a>
               </div>
               <div class="pagination-row">
-                <div class="pagination" id="pagination"></div>
+                <div class="pagination" id="pagination">
+                  {% if page_obj.has_previous %}
+                      <a href="?page={{ page_obj.previous_page_number }}">이전</a>
+                  {% else %}
+                      이전
+                  {% endif %}
+
+                  <span>{{ page_obj.number }} / {{ page_obj.paginator.num_pages }}</span>
+
+                  {% if page_obj.has_next %}
+                      <a href="?page={{ page_obj.next_page_number }}">다음</a>
+                  {% else %}
+                      다음
+                  {% endif %}
+                </div>
               </div>
             </section>
           </div>

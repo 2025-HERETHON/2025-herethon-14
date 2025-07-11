@@ -53,33 +53,22 @@
               <div class="storage-aside-title">탈출기</div>
               <ul class="storage-aside-list">
                 <li>전체보기</li>
-                <li class="active">나의 스크랩</li>
+                <li>나의 스크랩</li>
               </ul>
             </aside>
             <section class="storage-content" style="padding: 0 40px">
               <div class="view_all_btn" style="margin-top: 30px">
-                <a href="exitlog.html"><img src="{% static 'assets/Group 109.svg' %}" /></a>
+                <a href="exitlog.html"><img src="{% static 'assets/cal-left.svg' %}" /></a>
                 <a href="exitlog.html"> 전체글 보기</a>
               </div>
-              <h2 class="storage-detail-title"></h2>
-              <div class="storage-detail-date"></div>
-              <div class="storage-detail-body"></div>
-              <div class="storage-detail-img-row">
-                <img class="storage-detail-img" />
+              <div class="post-detail-box">
+                <h2 class="post-title"></h2>
+                <div class="post-date"></div>
+                <div class="post-content" id="cardContent"></div>
+                <div class="post-prev-header"></div>
+                <div class="post-prev-next"></div>
               </div>
-              <div class="storage-detail-footer"></div>
-              <div class="storage-detail-actions">
-                <button>
-                  <a href="exitlog_record.html"
-                                          ><img
-                       src="{% static 'assets/Group 371.png' %}"
-                       class="edit_btn"
-                       width="22"
-                      height="22"
-                  /></a>
-                </button>
-              </div>
-              <div class="storage-detail-prev-list"></div>
+
             </section>
           </div>
         </div>
@@ -108,6 +97,6 @@
         </div>
       </footer>
     </div>
-    <script src="{% static 'scripts/post.js' %}"></script>
+    <script src="{% static 'scripts/exitlog_post.js' %}"></script>
   </body>
 </html>

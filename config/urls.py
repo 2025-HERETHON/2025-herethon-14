@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from nexit.log_in.views import login_view, signup_view, UserLoginView, login_page, signup_page, login_api
+from nexit.log_in.views import login_view, signup_view, UserLoginView, login_page, signup_page, login_api, logout_view
 from nexit.profiling.views import profiling_survey, submit_profiling, profiling_result, previous_results, load_previous_result, profiling_page, profiling_result_page, profiling_last_result_page
 from nexit.mainpage.views import mainpage, my_notes, organizations, violence_info, escape_stories, profiling_link
 from django.views.generic import RedirectView
@@ -29,6 +29,7 @@ urlpatterns = [
     path('pages/<str:filename>.html', lambda request, filename: redirect(f'/{filename}.html', permanent=True)),
     path('admin/', admin.site.urls),
     path('login/', UserLoginView.as_view(), name='login'),
+    path('logout/', logout_view, name='logout'),
     path('accounts/login/', RedirectView.as_view(url='/login/', permanent=False)),
     path('agency.html', lambda request: render(request, 'agency.html'), name='agency_html'),
     path('signup/', include('nexit.signup.urls')),
@@ -65,4 +66,5 @@ urlpatterns = [
     path('institutions/', include('nexit.institutions.urls')),
     path('login/api/', login_api, name='login_api'),
     path('timelog_post.html', timelog_post_demo, name='timelog_post_html'),
+    path('login/mainpage.html', lambda request: redirect('/mainpage.html', permanent=False)),
 ]

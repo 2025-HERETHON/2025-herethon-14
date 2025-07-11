@@ -21,7 +21,7 @@ def index(request):
 
 #파일 또는 url이 있는 로그만 필터링
 def evidence(request):
-    timelogs = Timelog.objects.all().order_by('date')
+    timelogs = Timelog.objects.all().order_by('date') # type: ignore
     filtered = [t for t in timelogs if t.file or t.url]
     page_obj = get_paginated_timelogs(filtered, request)
     return render(request, 'timelog/index.html', {'page_obj': page_obj})
@@ -35,7 +35,7 @@ def create(request):
             if 'file' in request.FILES:
                 timelog.original_filename = request.FILES['file'].name
             timelog.save()
-            return redirect('timelog:index')
+            return redirect('/timelog.html')
     else:
         form = TimelogForm()
     return render(request, 'timelog_record.html', {'form': form})
@@ -106,7 +106,7 @@ def update(request, id):
 def delete(request, id):
     timelog = get_object_or_404(Timelog, id=id)
     timelog.delete()
-    return redirect('timelog:index')
+    return redirect('/timelog.html')
 
 
 def timelog_post_demo(request):

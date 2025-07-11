@@ -35,21 +35,70 @@ document.addEventListener("DOMContentLoaded", function () {
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
+    let score = 0;
+    for (let i = 1; i <= totalQuestions; i++) {
+      const val = form.querySelector(`input[name="q${i}"]:checked`).value;
+      if (val === "yes") score += 2;
+      else if (val === "normal") score += 1;
+    }
+
+    let resultIndex = 0;
+    if (score <= 4) resultIndex = 0;
+    else if (score <= 8) resultIndex = 1;
+    else if (score <= 12) resultIndex = 2;
+    else if (score <= 16) resultIndex = 3;
+    else resultIndex = 4;
+
+    sessionStorage.setItem("profilingResultIndex", resultIndex);
     window.location.href = "../pages/profiling_result.html";
   });
-});
+}); // <-- 여기까지가 DOMContentLoaded
 
-// 팝업창
+// ------ (여기서부터는 팝업 관련 코드!) ------
+
+const modalList = document.querySelector(".modal-list");
+const confirmBtn = document.querySelector(".modal-confirm");
+let selectedIdx = null;
+
+// 지난 결과 불러오기(팝업 열기)
 document
   .querySelector(".profiling-prev-result-btn")
   .addEventListener("click", function () {
+    // 리스트 동적 생성
+    modalList.innerHTML = ""; // 기존 하드코딩 삭제
+
+    // 저장된 결과 가져오기
+    let profilingResults = JSON.parse(
+      localStorage.getItem("profilingResults") || "[]"
+    );
+
+    if (profilingResults.length === 0) {
+      modalList.innerHTML = `<div style="padding:24px;text-align:center;color:#888">저장된 결과가 없습니다.</div>`;
+    } else {
+      profilingResults.forEach((item, idx) => {
+        const div = document.createElement("div");
+        div.className = "modal-item";
+        div.dataset.index = idx;
+        div.innerHTML = `
+          <div class="modal-item-title">${item.nickname}</div>
+          <div class="modal-item-date">${item.date}</div>
+        `;
+        modalList.appendChild(div);
+      });
+    }
+
     document.getElementById("resultModal").style.display = "flex";
-    document.body.style.overflow = "hidden"; //
+    document.body.style.overflow = "hidden";
+    // 확인 버튼, 선택 해제
+    confirmBtn.disabled = true;
+    confirmBtn.classList.remove("active");
+    selectedIdx = null;
   });
 
+// 팝업 닫기
 document.querySelector(".modal-close").addEventListener("click", function () {
   document.getElementById("resultModal").style.display = "none";
-  document.body.style.overflow = ""; //
+  document.body.style.overflow = "";
 });
 
 // 팝업창 바깥 클릭하면 닫히도록
@@ -60,26 +109,35 @@ document.getElementById("resultModal").addEventListener("click", function (e) {
   }
 });
 
-// 결과들 리스트 중 하나 클릭하면 확인 버튼 active 되도록!
-const items = document.querySelectorAll(".modal-item");
-const confirmBtn = document.querySelector(".modal-confirm");
-items.forEach((item) => {
-  item.addEventListener("click", function () {
-    items.forEach((it) => it.classList.remove("selected"));
-    this.classList.add("selected");
-    confirmBtn.classList.add("active");
+// 리스트 동적 바인딩 (선택)
+modalList.addEventListener("click", function (e) {
+  const item = e.target.closest(".modal-item");
+  if (item) {
+    // 모두 선택 해제
+    modalList
+      .querySelectorAll(".modal-item")
+      .forEach((it) => it.classList.remove("selected"));
+    item.classList.add("selected");
     confirmBtn.disabled = false;
-    confirmBtn.style.cursor = "pointer";
-    confirmBtn.style.color = "#fff";
-  });
+    confirmBtn.classList.add("active");
+    selectedIdx = Number(item.dataset.index);
+  }
 });
 
-// 확인하기 버튼 누르면
+// 확인하기 버튼 동작
 confirmBtn.addEventListener("click", function () {
-  if (!this.disabled) {
-    // 지난 결과 페이지 이동
-    document.getElementById("resultModal").style.display = "none";
-    document.body.style.overflow = "";
-    window.location.href = "../pages/profiling_last_result.html";
+  if (selectedIdx === null) return;
+  // 선택 결과 localStorage에서 꺼내 세션스토리지에 기록
+  let profilingResults = JSON.parse(
+    localStorage.getItem("profilingResults") || "[]"
+  );
+  const selected = profilingResults[selectedIdx];
+  if (selected) {
+    sessionStorage.setItem("profilingResultIndex", selected.level);
+    sessionStorage.setItem("profilingResultDate", selected.date);
+    sessionStorage.setItem("profilingResultNickname", selected.nickname);
   }
+  document.getElementById("resultModal").style.display = "none";
+  document.body.style.overflow = "";
+  window.location.href = "../pages/profiling_last_result.html";
 });
